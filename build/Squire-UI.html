@@ -7,6 +7,14 @@
         <div id="selectFont" data-action="selectFont" class="item">
             <i class="fa fa-font"></i>
         </div>
+        <div title="字体颜色" id="selectColor" data-action="selectColor" class="item">
+            <i class="fa fa-paint-brush" aria-hidden="true"></i>
+        </div>
+        <div title="字体背景色" id="selectBgColor" data-action="selectColor" class="item">
+            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+        </div>
+
+
     </div>
     <div class="group">
         <div id="makeLink" data-action="makeLink" class="item"><i class="fa fa-link"></i></div>
@@ -63,156 +71,7 @@
             <option data-fonts="\"Trebuchet MS\"">Trebuchet MS</option>
             <option data-fonts="verdana">Verdana</option>
         </select><br>
-        <table class="edui-box edui-default" style="border-collapse: collapse;" 
-        cellspacing="0" cellpadding="0">
-        <tbody class="edui-default">
-            <tr class="edui-colorpicker-tablefirstrow edui-default">
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffffff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffffff" style="background-color:#ffffff;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffd7d5" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffd7d5" style="background-color:#ffd7d5;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffdaa9" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffdaa9" style="background-color:#ffdaa9;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="fffed5" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#fffed5" style="background-color:#fffed5;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d4fa00" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d4fa00" style="background-color:#d4fa00;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="73fcd6" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#73fcd6" style="background-color:#73fcd6;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="a5c8ff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#a5c8ff" style="background-color:#a5c8ff;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffacd5" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffacd5" style="background-color:#ffacd5;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff7faa" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff7faa" style="background-color:#ff7faa;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-            </tr>
-            <tr class="edui-default">
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d6d6d6" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d6d6d6" style="background-color:#d6d6d6;border:solid #e7e7eb;border-width:1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffacaa" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffacaa" style="background-color:#ffacaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffb995" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffb995" style="background-color:#ffb995;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="fffb00" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#fffb00" style="background-color:#fffb00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="73fa79" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#73fa79" style="background-color:#73fa79;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="00fcff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00fcff" style="background-color:#00fcff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="78acfe" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#78acfe" style="background-color:#78acfe;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d84fa9" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d84fa9" style="background-color:#d84fa9;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff4f79" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4f79" style="background-color:#ff4f79;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-            </tr>
-            <tr class="edui-default">
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="b2b2b2" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#b2b2b2" style="background-color:#b2b2b2;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d7aba9" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d7aba9" style="background-color:#d7aba9;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff6827" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff6827" style="background-color:#ff6827;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffda51" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffda51" style="background-color:#ffda51;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="00d100" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00d100" style="background-color:#00d100;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="00d5ff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00d5ff" style="background-color:#00d5ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="0080ff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#0080ff" style="background-color:#0080ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ac39ff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ac39ff" style="background-color:#ac39ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff2941" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff2941" style="background-color:#ff2941;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-            </tr>
-            <tr class="edui-default">
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="888888" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#888888" style="background-color:#888888;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="7a4442" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7a4442" style="background-color:#7a4442;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff4c00" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4c00" style="background-color:#ff4c00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ffa900" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffa900" style="background-color:#ffa900;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="3da742" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#3da742" style="background-color:#3da742;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="3daad6" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#3daad6" style="background-color:#3daad6;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="0052ff" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#0052ff" style="background-color:#0052ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="7a4fd6" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7a4fd6" style="background-color:#7a4fd6;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d92142" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d92142" style="background-color:#d92142;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-            </tr>
-            <tr class="edui-default">
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="000000" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#000000" style="background-color:#000000;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="7b0c00" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7b0c00" style="background-color:#7b0c00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ff4c41" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4c41" style="background-color:#ff4c41;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="d6a841" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d6a841" style="background-color:#d6a841;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="407600" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#407600" style="background-color:#407600;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="007aaa" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#007aaa" style="background-color:#007aaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="021eaa" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#021eaa" style="background-color:#021eaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="797baa" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#797baa" style="background-color:#797baa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-                <td style="padding:2px;" class="edui-default">
-                    <a hidefocus="" title="ab1942" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ab1942" style="background-color:#ab1942;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
 
         <div class="btn submitFont">Apply</div>
     </div>
@@ -227,5 +86,157 @@
         <i class="fa fa-chevron-up quit"></i>
         <input placeholder="Image URL" type="text" id="imageUrl" />
         <div class="btn sumbitImageURL">Insert</div>
+    </div>
+
+    <div id="drop-color">
+        <table id="color-select-panel" class="edui-box edui-default" style="border-collapse: collapse;" cellspacing="0" cellpadding="0">
+            <tbody class="edui-default">
+                <tr class="edui-colorpicker-tablefirstrow edui-default">
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffffff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffffff" style="background-color:#ffffff;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffd7d5" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffd7d5" style="background-color:#ffd7d5;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffdaa9" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffdaa9" style="background-color:#ffdaa9;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="fffed5" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#fffed5" style="background-color:#fffed5;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d4fa00" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d4fa00" style="background-color:#d4fa00;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="73fcd6" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#73fcd6" style="background-color:#73fcd6;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="a5c8ff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#a5c8ff" style="background-color:#a5c8ff;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffacd5" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffacd5" style="background-color:#ffacd5;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff7faa" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff7faa" style="background-color:#ff7faa;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                </tr>
+                <tr class="edui-default">
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d6d6d6" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d6d6d6" style="background-color:#d6d6d6;border:solid #e7e7eb;border-width:1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffacaa" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffacaa" style="background-color:#ffacaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffb995" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffb995" style="background-color:#ffb995;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="fffb00" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#fffb00" style="background-color:#fffb00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="73fa79" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#73fa79" style="background-color:#73fa79;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="00fcff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00fcff" style="background-color:#00fcff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="78acfe" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#78acfe" style="background-color:#78acfe;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d84fa9" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d84fa9" style="background-color:#d84fa9;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff4f79" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4f79" style="background-color:#ff4f79;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                </tr>
+                <tr class="edui-default">
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="b2b2b2" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#b2b2b2" style="background-color:#b2b2b2;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d7aba9" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d7aba9" style="background-color:#d7aba9;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff6827" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff6827" style="background-color:#ff6827;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffda51" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffda51" style="background-color:#ffda51;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="00d100" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00d100" style="background-color:#00d100;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="00d5ff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#00d5ff" style="background-color:#00d5ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="0080ff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#0080ff" style="background-color:#0080ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ac39ff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ac39ff" style="background-color:#ac39ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff2941" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff2941" style="background-color:#ff2941;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                </tr>
+                <tr class="edui-default">
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="888888" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#888888" style="background-color:#888888;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="7a4442" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7a4442" style="background-color:#7a4442;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff4c00" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4c00" style="background-color:#ff4c00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ffa900" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ffa900" style="background-color:#ffa900;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="3da742" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#3da742" style="background-color:#3da742;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="3daad6" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#3daad6" style="background-color:#3daad6;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="0052ff" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#0052ff" style="background-color:#0052ff;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="7a4fd6" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7a4fd6" style="background-color:#7a4fd6;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d92142" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d92142" style="background-color:#d92142;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                </tr>
+                <tr class="edui-default">
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="000000" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#000000" style="background-color:#000000;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="7b0c00" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#7b0c00" style="background-color:#7b0c00;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ff4c41" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ff4c41" style="background-color:#ff4c41;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="d6a841" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#d6a841" style="background-color:#d6a841;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="407600" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#407600" style="background-color:#407600;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="007aaa" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#007aaa" style="background-color:#007aaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="021eaa" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#021eaa" style="background-color:#021eaa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="797baa" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#797baa" style="background-color:#797baa;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                    <td style="padding:2px;" class="edui-default">
+                        <a hidefocus="" title="ab1942" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell edui-default" data-color="#ab1942" style="background-color:#ab1942;border:solid #e7e7eb;border-width:1px 1px 1px 1px;"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
