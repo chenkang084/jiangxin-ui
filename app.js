@@ -4,18 +4,39 @@ const app = new Koa();
 // const response = require("./middlewares/response");
 const bodyParser = require("koa-bodyparser");
 const fs = require("fs");
-const serve = require("koa-static");
 const path = require("path");
 // console.log(path.join(__dirname, "build"));
 
-const main = serve(path.join(__dirname, "build"));
+const staticCache = require("koa-static-cache");
+
+var files = {};
+// Mount the middleware
+app.use(
+  staticCache(
+    "./build",
+    {
+      maxAge: 60 * 60 * 24 * 365,
+      gzip: true
+    },
+    files
+  )
+);
+
+// Add additional files
+staticCache(
+  "./src/assets",
+  {
+    maxAge: 60 * 60 * 24 * 365,
+    gzip: true
+  },
+  files
+);
 
 // 使用响应处理中间件
 // app.use(response);
 
 // 解析请求体
 app.use(bodyParser());
-app.use(main);
 
 // 引入路由分发
 // const router = require("./routes");
