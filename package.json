@@ -1,0 +1,26 @@
+{
+  "name": "sq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --config nodemon.json app.js",
+    "start":"pm2 start app.js -i 2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenkang084/wechat-export-article.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenkang084/wechat-export-article/issues"
+  },
+  "homepage": "https://github.com/chenkang084/wechat-export-article#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-static": "^4.0.2"
+  }
+}
