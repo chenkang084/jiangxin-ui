@@ -312,7 +312,7 @@ $(document).ready(function() {
           "  -moz-box-sizing: border-box;" +
           "  -webkit-box-sizing: border-box;" +
           "  box-sizing: border-box;" +
-          "  height: 100%;" +
+          // "  height: 100%;" +
           "  padding: 1em;" +
           "  background: transparent;" +
           "  color: #2b2b2b;" +
