@@ -34,7 +34,7 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/react"]
+            presets: ["es2015", "stage-0", "react"]
           }
         }
       },

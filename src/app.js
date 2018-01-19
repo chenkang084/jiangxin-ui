@@ -2,16 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-
-class HelloMessage extends React.Component {
-  render() {
-    return <div>Hello {this.props.name}</div>;
-  }
-}
-
+import Home from "./components/home/home";
 window.onload = function() {
-  ReactDOM.render(
-    <HelloMessage name="Taylor" />,
-    document.getElementById("root")
-  );
+  ReactDOM.render(<Home />, document.getElementById("root"));
 };
