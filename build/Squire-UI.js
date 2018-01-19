@@ -28,6 +28,7 @@ $(document).ready(function() {
       throw new Error("No element was defined for the editor to inject to.");
     }
     var iframe = document.createElement("iframe");
+    iframe.id = "editor-wrap";
     var div = document.createElement("div");
     div.className = "Squire-UI";
     iframe.height = options.height;
@@ -312,7 +313,7 @@ $(document).ready(function() {
           "  -moz-box-sizing: border-box;" +
           "  -webkit-box-sizing: border-box;" +
           "  box-sizing: border-box;" +
-          // "  height: 100%;" +
+          "  height: 90%;" +
           "  padding: 1em;" +
           "  background: transparent;" +
           "  color: #2b2b2b;" +

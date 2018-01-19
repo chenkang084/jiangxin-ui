@@ -13,7 +13,7 @@ app.use(
   staticCache(
     "./build",
     {
-      maxAge: 60 * 60 * 24 * 365,
+      maxAge: 0,
       gzip: true
     },
     files
