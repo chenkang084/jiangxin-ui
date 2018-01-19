@@ -1,6 +1,9 @@
 const path = require("path");
 const rootPath = path.join(__dirname, "../");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const _ = require("lodash");
+const env = _.trim(process.env.NODE_ENV);
 
 console.log(path.join(rootPath, "src/app.js"));
 
@@ -31,7 +34,7 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
+            presets: ["@babel/react"]
           }
         }
       },
@@ -39,6 +42,40 @@ const webpackConfig = {
         test: /\.html$/,
         loader: "html-loader",
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                minimize: env === "dev" ? false : true,
+                sourceMap: false
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                sourceMap: false,
+                minimize: env === "dev" ? false : true,
+                importLoader: 1,
+                localIdentName: "[hash:base64:5]"
+              }
+            },
+            "less-loader"
+          ]
+        })
       }
     ]
   },
