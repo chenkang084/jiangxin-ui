@@ -24,12 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Create instance of iFrame
     var container, editor;
     if (options.replace) {
-      // container = $(options.replace).parent();
-      // $(options.replace).remove();
       container = document.querySelector(options.replace).parentElement;
       document.querySelector(options.replace).remove();
     } else if (options.div) {
-      // container = $(options.div);
       container = document.querySelector(options.div);
     } else {
       throw new Error("No element was defined for the editor to inject to.");
@@ -58,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
       iframe.contentWindow.editor = new Squire(iframe.contentWindow.document);
       iframe.contentWindow.editor.addStyles("html {" + "  height: 100%;" + "}" + "body {" + "  -moz-box-sizing: border-box;" + "  -webkit-box-sizing: border-box;" + "  box-sizing: border-box;" + "  height: 90%;" + "  padding: 1em;" + "  background: transparent;" + "  color: #2b2b2b;" + "  font: 13px/1.35 Helvetica, arial, sans-serif;" + "  cursor: text;" + "}" + "a {" + "  text-decoration: underline;" + "}" + "h1 {" + "  font-size: 138.5%;" + "}" + "h2 {" + "  font-size: 123.1%;" + "}" + "h3 {" + "  font-size: 108%;" + "}" + "h1,h2,h3,p {" + "  margin: 1em 0;" + "}" + "h4,h5,h6 {" + "  margin: 0;" + "}" + "ul, ol {" + "  margin: 0 1em;" + "  padding: 0 1em;" + "}" + "blockquote {" + "  border-left: 2px solid blue;" + "  margin: 0;" + "  padding: 0 10px;" + "}" + "img{" + "max-width:500px!important;}");
     });
-
-    // $(container).append(div);
-    // $(container).append(iframe);
 
     container.append(div);
     container.append(iframe);
