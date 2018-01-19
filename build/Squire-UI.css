@@ -114,6 +114,10 @@ input[type="text"] {
   border-bottom: 3px #55acee solid;
 }
 
+.item-selected {
+  border-bottom: 3px #55acee solid !important;
+}
+
 .menu .item:first-child {
   border-left: none;
 }
@@ -331,4 +335,23 @@ input[type="text"] {
 
 .edui-box tr a {
   padding: 0 10px;
+}
+
+.source-code {
+  width: 100%;
+  border: 1px #919191 solid;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 7px 8px;
+  color: #333;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  resize: none;
+  height: 450px;
+  display: none;
 }

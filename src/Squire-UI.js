@@ -1,3 +1,5 @@
+import { checkNewFeatures } from "./new-features";
+
 $(document).ready(function() {
   Squire.prototype.testPresenceinSelection = function(
     name,
@@ -13,7 +15,7 @@ $(document).ready(function() {
       return false;
     }
   };
-  SquireUI = function(options) {
+  window.SquireUI = function(options) {
     if (typeof options.buildPath == "undefined") {
       options.buildPath = "/";
     }
@@ -200,7 +202,17 @@ $(document).ready(function() {
         var editor = iframe.contentWindow.editor;
         var action = $(this).data("action");
 
-        test = {
+        if (this.classList.contains("item-selected")) {
+          this.classList.remove("item-selected");
+        } else {
+          this.classList.add("item-selected");
+        }
+
+        if (checkNewFeatures(action)) {
+          return;
+        }
+
+        const test = {
           value: $(this).data("action"),
           testBold: editor.testPresenceinSelection("bold", action, "B", />B\b/),
           testItalic: editor.testPresenceinSelection(
