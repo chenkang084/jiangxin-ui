@@ -115,7 +115,7 @@ input[type="text"] {
 }
 
 .item-selected {
-  border-bottom: 3px #55acee solid !important;
+  background: #e4e4e4 !important;
 }
 
 .menu .item:first-child {

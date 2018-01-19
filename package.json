@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/chenkang084/wechat-export-article#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-static-cache": "^5.1.1",

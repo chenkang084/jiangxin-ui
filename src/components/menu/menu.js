@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import classnames from "classnames";
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -50,7 +51,16 @@ export default class Menus extends React.Component {
   ];
 
   handleItemEvent = e => {
-    console.log(e);
+    const action = e.currentTarget.dataset.action;
+    const isSelected = e.currentTarget.classList.contains("item-selected");
+
+    if (isSelected) {
+      e.currentTarget.classList.remove("item-selected");
+    } else {
+      e.currentTarget.classList.add("item-selected");
+    }
+
+    this.props.executeAction(action, isSelected);
   };
 
   render() {
