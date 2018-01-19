@@ -14,7 +14,7 @@
     <link href="/Squire-UI.css" rel="stylesheet" type="text/css" />
     <link href="/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
-    <script src="/jQuery/jQuery.js" type="text/javascript"></script>
+    <!-- <script src="/jQuery/jQuery.js" type="text/javascript"></script> -->
     <script src="/drop.js" type="text/javascript"></script>
     <script src="/squire-raw.js" type="text/javascript"></script>
     <!-- <script src="/Squire-UI.js" type="text/javascript"></script> -->
@@ -32,7 +32,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-centered">
+            <div class="col-centered" id="text-wrap">
                 <textarea id="foo"></textarea>
             </div>
             <div class="col-centered ">
@@ -44,7 +44,7 @@
 </body>
 
 <script>
-    $(document).ready(function () {
+    document.addEventListener("DOMContentLoaded", function () {
         window.sq = new SquireUI({
             replace: 'textarea#foo',
             height: 450

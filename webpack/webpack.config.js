@@ -34,6 +34,11 @@ const webpackConfig = {
             presets: ["@babel/preset-env"]
           }
         }
+      },
+      {
+        test: /\.html$/,
+        loader: "html-loader",
+        exclude: /node_modules/
       }
     ]
   },
