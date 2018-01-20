@@ -7,24 +7,44 @@ export default class Home extends React.Component {
     super(props);
   }
 
+  state = {
+    showSourceCode: false,
+    editor: null
+  };
+
   setIframe = iframe => {
     this.iframe = iframe;
     this.editor = iframe.contentWindow.editor;
+    this.setState({ editor: iframe.contentWindow.editor });
+    console.log(this.editor);
 
     this.actionList = {
+      sourceCode: {
+        add: () => {
+          this.setState({ showSourceCode: true });
+        },
+        remove: () => {
+          this.setState({ showSourceCode: false });
+        }
+      },
+      bold: { add: this.editor.bold, remove: this.editor.removeBold },
+      italic: { add: this.editor.italic, remove: this.editor.removeItalic },
       underline: {
         add: this.editor.underline,
         remove: this.editor.removeUnderline
+      },
+      strikethrough: {
+        add: this.editor.strikethrough,
+        remove: this.editor.removeStrikethrough
       }
+      // selectFont: {
+
+      //   }
+      // }
     };
   };
 
   executeAction = (action, isSelected) => {
-    console.log(this.editor);
-
-    console.log(action, isSelected);
-
-    // this.editor.underline();
     let actionFn;
     if (isSelected) {
       actionFn = this.actionList[action] && this.actionList[action].remove;
@@ -38,8 +58,11 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <Menu executeAction={this.executeAction} />
-        <SquireUI setIframe={this.setIframe} />
+        <Menu executeAction={this.executeAction} editor={this.state.editor} />
+        <SquireUI
+          setIframe={this.setIframe}
+          showSourceCode={this.state.showSourceCode}
+        />
       </div>
     );
   }

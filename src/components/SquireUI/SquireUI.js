@@ -19,7 +19,7 @@ export default class SquireUI extends React.Component {
         throw new Error("No element was defined for the editor to inject to.");
       }
       var iframe = document.createElement("iframe");
-      iframe.id = "editor-wrap";        
+      iframe.id = "editor-wrap";
       //   var div = document.createElement("div");
       //   div.className = "Squire-UI";
       //   div.innerHTML = require("../../../build/squire-UI.html");
@@ -104,10 +104,16 @@ export default class SquireUI extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-centered" id="text-wrap">
+          <div
+            className="col-centered"
+            style={{ display: !this.props.showSourceCode ? "block" : "none" }}
+          >
             <textarea id="foo" spellCheck="false" />
           </div>
-          <div className="col-centered ">
+          <div
+            className="col-centered "
+            style={{ display: this.props.showSourceCode ? "block" : "none" }}
+          >
             <div className="source-code" id="source-code">
               html
             </div>

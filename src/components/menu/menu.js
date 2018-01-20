@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import classnames from "classnames";
+import DropDown from "./dropDown";
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -63,32 +64,85 @@ export default class Menus extends React.Component {
     this.props.executeAction(action, isSelected);
   };
 
+  componentDidMount() {
+    console.log(".......");
+    const self = this;
+
+    const drop = new Drop({
+      target: document.getElementById("selectFont"),
+      content: document.getElementById("drop-font").innerHTML,
+      position: "bottom center",
+      openOn: "click"
+    });
+
+    drop.on("open", function(e) {
+      // $(".quit").click(function() {
+      //   $(this)
+      //     .parent()
+      //     .parent()
+      //     .removeClass("drop-open");
+      // });
+
+      console.log(self.props.editor);
+
+      // $(".submitFont")
+      //   .unbind()
+      //   .click(function() {
+      //     var editor = iframe.contentWindow.editor;
+      //     var selectedFonts = $("select#fontSelect option:selected")
+      //       .last()
+      //       .data("fonts");
+      //     var fontSize =
+      //       $("select#textSelector option:selected")
+      //         .last()
+      //         .data("size") + "px";
+      //     editor.setFontSize(fontSize);
+
+      //     try {
+      //       editor.setFontFace(selectedFonts);
+      //     } catch (e) {
+      //       alert("Please make a selection of text.");
+      //     } finally {
+      //       $(this)
+      //         .parent()
+      //         .parent()
+      //         .removeClass("drop-open");
+      //     }
+      //   });
+    });
+  }
+
   render() {
     return (
-      <div className="menu">
-        {this.menusList.map((group, index) => {
-          return (
-            <div className="group" key={index}>
-              {group.subItems &&
-                group.subItems.length > 0 &&
-                group.subItems.map(action => {
-                  return (
-                    <div
-                      className="item"
-                      key={action.dataAction}
-                      data-action={action.dataAction}
-                      title={action.title}
-                      onClick={e => {
-                        this.handleItemEvent(e);
-                      }}
-                    >
-                      {action.icon}
-                    </div>
-                  );
-                })}
-            </div>
-          );
-        })}
+      <div>
+        <div className="menu">
+          {this.menusList.map((group, index) => {
+            return (
+              <div className="group" key={index}>
+                {group.subItems &&
+                  group.subItems.length > 0 &&
+                  group.subItems.map(action => {
+                    return (
+                      <div
+                        className="item"
+                        key={action.dataAction}
+                        data-action={action.dataAction}
+                        title={action.title}
+                        id={action.dataAction}
+                        onClick={e => {
+                          this.handleItemEvent(e);
+                        }}
+                      >
+                        {action.icon}
+                      </div>
+                    );
+                  })}
+              </div>
+            );
+          })}
+        </div>
+
+        <DropDown />
       </div>
     );
   }
