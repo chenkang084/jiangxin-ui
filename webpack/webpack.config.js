@@ -1,5 +1,6 @@
 const path = require("path");
 const rootPath = path.join(__dirname, "../");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const _ = require("lodash");
@@ -34,7 +35,13 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015", "stage-0", "react"]
+            presets: ["es2015", "stage-0", "react"],
+            plugins: [
+              [
+                "import",
+                { libraryName: "antd", libraryDirectory: "es", style: "css" }
+              ]
+            ]
           }
         }
       },
@@ -45,6 +52,7 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
+        // exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
@@ -55,8 +63,13 @@ const webpackConfig = {
                 sourceMap: false
               }
             }
+            // "postcss-loader"
           ]
         })
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader?limit=100000"
       },
       {
         test: /\.less$/,
@@ -73,6 +86,7 @@ const webpackConfig = {
                 localIdentName: "[hash:base64:5]"
               }
             },
+            "postcss-loader",
             "less-loader"
           ]
         })
@@ -80,6 +94,11 @@ const webpackConfig = {
     ]
   },
   plugins: [
+    new ExtractTextPlugin({
+      filename: "main.css",
+      disable: false,
+      allChunks: true
+    }),
     new HtmlWebpackPlugin({
       // 根据模板插入css/js等生成最终HTML
       filename: "./index.html", // 生成的html存放路径，相对于 path
@@ -89,5 +108,18 @@ const webpackConfig = {
     })
   ]
 };
+
+if (env !== "dev") {
+  console.log(
+    "=============================start uglify============================="
+  );
+  webpackConfig.plugins = webpackConfig.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]);
+}
 
 module.exports = webpackConfig;

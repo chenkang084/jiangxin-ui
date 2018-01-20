@@ -1,6 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import classnames from "classnames";
+import DropDown from "./dropDown";
+import "antd/dist/antd.css";
+import { Popover, Button } from "antd";
+
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -63,32 +73,63 @@ export default class Menus extends React.Component {
     this.props.executeAction(action, isSelected);
   };
 
+  componentDidMount() {
+    console.log(".......");
+    const self = this;
+
+    
+  }
+
   render() {
     return (
-      <div className="menu">
-        {this.menusList.map((group, index) => {
-          return (
-            <div className="group" key={index}>
-              {group.subItems &&
-                group.subItems.length > 0 &&
-                group.subItems.map(action => {
-                  return (
-                    <div
-                      className="item"
-                      key={action.dataAction}
-                      data-action={action.dataAction}
-                      title={action.title}
-                      onClick={e => {
-                        this.handleItemEvent(e);
-                      }}
-                    >
-                      {action.icon}
-                    </div>
-                  );
-                })}
-            </div>
-          );
-        })}
+      <div>
+        <div className="menu">
+          {this.menusList.map((group, index) => {
+            return (
+              <div className="group" key={index}>
+                {group.subItems &&
+                  group.subItems.length > 0 &&
+                  group.subItems.map(action => {
+                    {
+                      return action.type && action.type === "dropDown" ? (
+                        <Popover
+                          content={content}
+                          placement="bottom"
+                          key={action.dataAction}
+                        >
+                          <div
+                            className="item"
+                            data-action={action.dataAction}
+                            title={action.title}
+                            id={action.dataAction}
+                            onClick={e => {
+                              this.handleItemEvent(e);
+                            }}
+                          >
+                            {action.icon}
+                          </div>
+                        </Popover>
+                      ) : (
+                        <div
+                          className="item"
+                          key={action.dataAction}
+                          data-action={action.dataAction}
+                          title={action.title}
+                          id={action.dataAction}
+                          onClick={e => {
+                            this.handleItemEvent(e);
+                          }}
+                        >
+                          {action.icon}
+                        </div>
+                      );
+                    }
+                  })}
+              </div>
+            );
+          })}
+        </div>
+        <DropDown />
       </div>
     );
   }
