@@ -2,20 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 export default class DropDown extends React.Component {
-  handleChange = e => {
-    console.log(e.target.value);
-  };
-
   render() {
-    console.log(this.handleChange);
-
     return (
       <div className="templates hidden">
         <div id="drop-font">
           <strong>Change Font</strong>
           <i className="fa fa-chevron-up quit" />
           <br /> Text Size:
-          <select id="textSelector" onChange={this.handleChange}>
+          <select id="textSelector">
             <option data-size="12">12</option>
             <option data-size="14">14</option>
             <option data-size="16">16</option>

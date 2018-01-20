@@ -1,5 +1,6 @@
 const path = require("path");
 const rootPath = path.join(__dirname, "../");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const _ = require("lodash");
@@ -34,13 +35,13 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015", "stage-0", "react"]
-            // plugins: [
-            //   [
-            //     "import",
-            //     { libraryName: "antd", libraryDirectory: "es", style: "css" }
-            //   ]
-            // ]
+            presets: ["es2015", "stage-0", "react"],
+            plugins: [
+              [
+                "import",
+                { libraryName: "antd", libraryDirectory: "es", style: "css" }
+              ]
+            ]
           }
         }
       },
@@ -61,7 +62,7 @@ const webpackConfig = {
                 minimize: env === "dev" ? false : true,
                 sourceMap: false
               }
-            },
+            }
             // "postcss-loader"
           ]
         })
@@ -107,5 +108,18 @@ const webpackConfig = {
     })
   ]
 };
+
+if (env !== "dev") {
+  console.log(
+    "=============================start uglify============================="
+  );
+  webpackConfig.plugins = webpackConfig.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]);
+}
 
 module.exports = webpackConfig;
