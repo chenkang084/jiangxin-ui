@@ -1,16 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import classnames from "classnames";
-import DropDown from "./dropDown";
 import "antd/dist/antd.css";
-import { Popover, Button } from "antd";
-
-const content = (
-  <div>
-    <p>Content</p>
-    <p>Content</p>
-  </div>
-);
+import { Popover, Button, Select } from "antd";
+import { FontFamily, FontSize } from "./fontDropdown";
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -52,9 +45,21 @@ export default class Menus extends React.Component {
         },
         {
           type: "dropDown",
-          icon: <i className="fa fa-font" />,
-          dataAction: "selectFont",
+          render: () => {
+            console.log(this);
+            return <FontFamily handleEvent={this.handleDropDown} />;
+          },
+          dataAction: "fontFamily",
           title: "字体"
+        },
+        {
+          type: "dropDown",
+          render: () => {
+            console.log(this);
+            return <FontSize handleEvent={this.handleDropDown} />;
+          },
+          dataAction: "fontSize",
+          title: "字号"
         }
       ]
     }
@@ -73,11 +78,15 @@ export default class Menus extends React.Component {
     this.props.executeAction(action, isSelected);
   };
 
+  handleDropDown = (action, value) => {
+    console.log('........');
+    
+    this.props.executeDropDownAction(action, value);
+  };
+
   componentDidMount() {
     console.log(".......");
     const self = this;
-
-    
   }
 
   render() {
@@ -92,23 +101,9 @@ export default class Menus extends React.Component {
                   group.subItems.map(action => {
                     {
                       return action.type && action.type === "dropDown" ? (
-                        <Popover
-                          content={content}
-                          placement="bottom"
-                          key={action.dataAction}
-                        >
-                          <div
-                            className="item"
-                            data-action={action.dataAction}
-                            title={action.title}
-                            id={action.dataAction}
-                            onClick={e => {
-                              this.handleItemEvent(e);
-                            }}
-                          >
-                            {action.icon}
-                          </div>
-                        </Popover>
+                        <div className="dropdown-wrap" key={action.dataAction}>
+                          {action.render.call(this)}
+                        </div>
                       ) : (
                         <div
                           className="item"
@@ -129,7 +124,6 @@ export default class Menus extends React.Component {
             );
           })}
         </div>
-        <DropDown />
       </div>
     );
   }

@@ -353,3 +353,10 @@ input[type="text"] {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   height: 450px;
 }
+
+.dropdown-wrap {
+  float: left;
+  border-left: 1px solid #eee;
+  padding: 5px 4px 0 4px;
+  height: 43.8px;
+}

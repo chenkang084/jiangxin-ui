@@ -36,11 +36,8 @@ export default class Home extends React.Component {
       strikethrough: {
         add: this.editor.strikethrough,
         remove: this.editor.removeStrikethrough
-      }
-      // selectFont: {
-
-      //   }
-      // }
+      },
+      fontSize: {}
     };
   };
 
@@ -55,10 +52,21 @@ export default class Home extends React.Component {
     actionFn && actionFn.call(this.editor);
   };
 
+  executeDropDownAction = (action, value) => {
+    // this.editor.setFontSize(`${size}px`);
+    console.log(action, value);
+
+    this.editor.setFontFace("隶书, SimLi");
+  };
+
   render() {
     return (
       <div>
-        <Menu executeAction={this.executeAction} editor={this.state.editor} />
+        <Menu
+          executeAction={this.executeAction}
+          executeDropDownAction={this.executeDropDownAction}
+          editor={this.state.editor}
+        />
         <SquireUI
           setIframe={this.setIframe}
           showSourceCode={this.state.showSourceCode}
