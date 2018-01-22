@@ -3,6 +3,7 @@ const rootPath = path.join(__dirname, "../");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const _ = require("lodash");
 const env = _.trim(process.env.NODE_ENV);
 
@@ -10,7 +11,7 @@ console.log(path.join(rootPath, "src/app.js"));
 
 const webpackConfig = {
   devtool: "module-source-map",
-  entry: [path.join(rootPath, "src/app.js")],
+  entry: ["babel-polyfill", path.join(rootPath, "src/app.js")],
   output: {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
@@ -18,7 +19,7 @@ const webpackConfig = {
     chunkFilename: "[name]-[id].[chunkhash:8].bundle.js"
   },
   devServer: {
-    contentBase: rootPath + "/build/", // 本地服务器所加载的页面所在的目录
+    contentBase: rootPath + "/src/assets/", // 本地服务器所加载的页面所在的目录
     host: "0.0.0.0",
     port: 9002,
     historyApiFallback: true, // 不跳转
@@ -105,7 +106,13 @@ const webpackConfig = {
       template: rootPath + "/index.html", // html模板路径
       hash: true, // 为静态资源生成hash值
       inject: "head"
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: rootPath + "/src/assets",
+        to: "./"
+      }
+    ])
   ]
 };
 
@@ -113,13 +120,13 @@ if (env !== "dev") {
   console.log(
     "=============================start uglify============================="
   );
-  webpackConfig.plugins = webpackConfig.plugins.concat([
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ]);
+  // webpackConfig.plugins = webpackConfig.plugins.concat([
+  //   new webpack.optimize.UglifyJsPlugin({
+  //     compress: {
+  //       warnings: false
+  //     }
+  //   })
+  // ]);
 }
 
 module.exports = webpackConfig;

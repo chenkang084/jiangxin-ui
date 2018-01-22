@@ -46,7 +46,6 @@ export default class Menus extends React.Component {
         {
           type: "dropDown",
           render: () => {
-            console.log(this);
             return <FontFamily handleEvent={this.handleDropDown} />;
           },
           dataAction: "fontFamily",
@@ -55,7 +54,6 @@ export default class Menus extends React.Component {
         {
           type: "dropDown",
           render: () => {
-            console.log(this);
             return <FontSize handleEvent={this.handleDropDown} />;
           },
           dataAction: "fontSize",
@@ -101,8 +99,8 @@ export default class Menus extends React.Component {
   };
 
   componentDidMount() {
-    console.log(".......");
-    const self = this;
+    // console.log(".......");
+    // const self = this;
   }
 
   render() {
