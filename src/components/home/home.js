@@ -40,7 +40,33 @@ export default class Home extends React.Component {
       fontSize: { add: this.editor.setFontSize },
       fontFamily: { add: this.editor.setFontFace },
       fontColor: { add: this.editor.setTextColour },
-      fontBgColor: { add: this.editor.setHighlightColour }
+      fontBgColor: { add: this.editor.setHighlightColour },
+      addLink: { add: this.editor.makeLink },
+      addImg: { add: this.editor.insertImage },
+      alignLeft: {
+        add: () => {
+          this.editor.setTextAlignment("left");
+        },
+        remove: () => {
+          this.editor.setTextAlignment("left");
+        }
+      },
+      alignCenter: {
+        add: () => {
+          this.editor.setTextAlignment("center");
+        },
+        remove: () => {
+          this.editor.setTextAlignment("left");
+        }
+      },
+      alignRight: {
+        add: () => {
+          this.editor.setTextAlignment("right");
+        },
+        remove: () => {
+          this.editor.setTextAlignment("left");
+        }
+      }
     };
   };
 
@@ -64,11 +90,21 @@ export default class Home extends React.Component {
     actionFn.call(this.editor, value);
   };
 
+  executeAlign = action => {
+    let actionFn;
+    if (this.actionList[action] && this.actionList[action].add) {
+      actionFn = this.actionList[action].add;
+    }
+
+    actionFn.call(this.editor);
+  };
+
   render() {
     return (
       <div>
         <Menu
           executeAction={this.executeAction}
+          executeAlign={this.executeAlign}
           executeDropDownAction={this.executeDropDownAction}
           editor={this.state.editor}
         />
