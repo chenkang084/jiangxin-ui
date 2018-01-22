@@ -5,6 +5,7 @@ import SquireUI from "../SquireUI/SquireUI";
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    // this.setIframe = this.setIframe.bind(this);
   }
 
   state = {
@@ -16,7 +17,6 @@ export default class Home extends React.Component {
     this.iframe = iframe;
     this.editor = iframe.contentWindow.editor;
     this.setState({ editor: iframe.contentWindow.editor });
-    console.log(this.editor);
 
     this.actionList = {
       sourceCode: {

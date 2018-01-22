@@ -20,13 +20,8 @@ export default class SquireUI extends React.Component {
       }
       var iframe = document.createElement("iframe");
       iframe.id = "editor-wrap";
-      //   var div = document.createElement("div");
-      //   div.className = "Squire-UI";
-      //   div.innerHTML = require("../../../build/squire-UI.html");
-
       iframe.height = options.height;
-
-      iframe.addEventListener("load", function() {
+      iframe.onload = function(params) {
         // Make sure we're in standards mode.
         var doc = iframe.contentDocument;
         if (doc.compatMode !== "CSS1Compat") {
@@ -85,15 +80,12 @@ export default class SquireUI extends React.Component {
             "img{" +
             "max-width:500px!important;}"
         );
-      });
 
-      //   container.append(div);
-      container.append(iframe);
+        self.props.setIframe(iframe);
+      };
 
-      self.props.setIframe(iframe);
-
+      container.appendChild(iframe);
       iframe.contentDocument.body.setAttribute("spellcheck", false);
-
       return iframe.contentWindow.editor;
     };
 
