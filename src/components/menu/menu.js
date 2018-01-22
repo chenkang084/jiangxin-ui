@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import classnames from "classnames";
 import "antd/dist/antd.css";
 import { Popover, Button, Select } from "antd";
-import { FontFamily, FontSize } from "./fontDropdown";
+import { FontFamily, FontSize, FontColor, FontBgColor } from "./fontDropdown";
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -60,6 +60,24 @@ export default class Menus extends React.Component {
           },
           dataAction: "fontSize",
           title: "字号"
+        },
+        {
+          type: "dropDown",
+          icon: <i className="fa fa-paint-brush" aria-hidden="true" />,
+          dataAction: "fontColor",
+          title: "文字颜色",
+          render: () => {
+            return <FontColor handleEvent={this.handleDropDown} />;
+          }
+        },
+        {
+          type: "dropDown",
+          icon: <i className="fa fa-paint-brush" aria-hidden="true" />,
+          dataAction: "fontBgColor",
+          title: "文字背景色",
+          render: () => {
+            return <FontBgColor handleEvent={this.handleDropDown} />;
+          }
         }
       ]
     }
@@ -79,8 +97,6 @@ export default class Menus extends React.Component {
   };
 
   handleDropDown = (action, value) => {
-    console.log('........');
-    
     this.props.executeDropDownAction(action, value);
   };
 

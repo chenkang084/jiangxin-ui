@@ -37,7 +37,10 @@ export default class Home extends React.Component {
         add: this.editor.strikethrough,
         remove: this.editor.removeStrikethrough
       },
-      fontSize: {}
+      fontSize: { add: this.editor.setFontSize },
+      fontFamily: { add: this.editor.setFontFace },
+      fontColor: { add: this.editor.setTextColour },
+      fontBgColor: { add: this.editor.setHighlightColour }
     };
   };
 
@@ -53,10 +56,12 @@ export default class Home extends React.Component {
   };
 
   executeDropDownAction = (action, value) => {
-    // this.editor.setFontSize(`${size}px`);
-    console.log(action, value);
+    let actionFn;
+    if (this.actionList[action] && this.actionList[action].add) {
+      actionFn = this.actionList[action].add;
+    }
 
-    this.editor.setFontFace("隶书, SimLi");
+    actionFn.call(this.editor, value);
   };
 
   render() {
