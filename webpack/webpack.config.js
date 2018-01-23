@@ -11,7 +11,7 @@ console.log(path.join(rootPath, "src/app.js"));
 
 const webpackConfig = {
   devtool: "module-source-map",
-  entry: ["babel-polyfill", path.join(rootPath, "src/app.js")],
+  entry: [path.join(rootPath, "src/app.js")],
   output: {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
@@ -36,13 +36,13 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015", "stage-0", "react"],
-            plugins: [
-              [
-                "import",
-                { libraryName: "antd", libraryDirectory: "es", style: "css" }
-              ]
-            ]
+            presets: ["es2015", "stage-0", "react"]
+            // plugins: [
+            //   [
+            //     "import",
+            //     { libraryName: "antd", libraryDirectory: "es", style: "css" }
+            //   ]
+            // ]
           }
         }
       },
@@ -101,18 +101,25 @@ const webpackConfig = {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
-      // 根据模板插入css/js等生成最终HTML
       filename: "./index.html", // 生成的html存放路径，相对于 path
       template: rootPath + "/index.html", // html模板路径
       hash: true, // 为静态资源生成hash值
-      inject: "head"
+      inject: "body"
     }),
     new CopyWebpackPlugin([
       {
         from: rootPath + "/src/assets",
         to: "./"
       }
-    ])
+    ]),
+    new webpack.DllReferencePlugin({
+      context: rootPath + "/webpack",
+      name: "vendor",
+      manifest: require(path.resolve(
+        rootPath,
+        "./src/assets/library/dll/main-manifest.json"
+      ))
+    })
   ]
 };
 
