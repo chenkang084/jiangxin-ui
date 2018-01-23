@@ -3,7 +3,14 @@ import ReactDOM from "react-dom";
 import classnames from "classnames";
 import "antd/dist/antd.css";
 import { Popover, Button, Select } from "antd";
-import { FontFamily, FontSize, FontColor, FontBgColor } from "./fontDropdown";
+import {
+  FontFamily,
+  FontSize,
+  FontColor,
+  FontBgColor,
+  SetHrefLink,
+  SetImgLink
+} from "./fontDropdown";
 
 export default class Menus extends React.Component {
   constructor(props) {
@@ -78,6 +85,50 @@ export default class Menus extends React.Component {
           }
         }
       ]
+    },
+    {
+      groupName: "",
+      subItems: [
+        {
+          type: "dropDown",
+          dataAction: "addLink",
+          title: "超链接",
+          render: () => {
+            return <SetHrefLink handleEvent={this.handleDropDown} />;
+          }
+        },
+        {
+          type: "dropDown",
+          dataAction: "addImg",
+          title: "插入图片",
+          render: () => {
+            return <SetImgLink handleEvent={this.handleDropDown} />;
+          }
+        }
+      ]
+    },
+    {
+      groupName: "",
+      subItems: [
+        {
+          type: "align",
+          icon: <i className="fa fa-align-left" />,
+          title: "居左",
+          dataAction: "alignLeft"
+        },
+        {
+          type: "align",
+          icon: <i className="fa fa-align-center" />,
+          title: "居中",
+          dataAction: "alignCenter"
+        },
+        {
+          type: "align",
+          icon: <i className="fa fa-align-right" />,
+          title: "居右",
+          dataAction: "alignRight"
+        }
+      ]
     }
   ];
 
@@ -94,14 +145,58 @@ export default class Menus extends React.Component {
     this.props.executeAction(action, isSelected);
   };
 
+  handleAlignEvent = e => {
+    const action = e.currentTarget.dataset.action;
+    this.props.executeAlign(action);
+  };
+
   handleDropDown = (action, value) => {
     this.props.executeDropDownAction(action, value);
   };
 
   componentDidMount() {
-    // console.log(".......");
-    // const self = this;
+
   }
+
+  renderItem = action => {
+    if (action.type === "dropDown") {
+      return (
+        <div className="dropdown-wrap" key={action.dataAction}>
+          {action.render.call(this)}
+        </div>
+      );
+    } else if (action.type === "align") {
+      return (
+        <div
+          className="item"
+          key={action.dataAction}
+          data-action={action.dataAction}
+          title={action.title}
+          id={action.dataAction}
+          onClick={e => {
+            this.handleAlignEvent(e);
+          }}
+        >
+          {action.icon}
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className="item"
+          key={action.dataAction}
+          data-action={action.dataAction}
+          title={action.title}
+          id={action.dataAction}
+          onClick={e => {
+            this.handleItemEvent(e);
+          }}
+        >
+          {action.icon}
+        </div>
+      );
+    }
+  };
 
   render() {
     return (
@@ -114,24 +209,7 @@ export default class Menus extends React.Component {
                   group.subItems.length > 0 &&
                   group.subItems.map(action => {
                     {
-                      return action.type && action.type === "dropDown" ? (
-                        <div className="dropdown-wrap" key={action.dataAction}>
-                          {action.render.call(this)}
-                        </div>
-                      ) : (
-                        <div
-                          className="item"
-                          key={action.dataAction}
-                          data-action={action.dataAction}
-                          title={action.title}
-                          id={action.dataAction}
-                          onClick={e => {
-                            this.handleItemEvent(e);
-                          }}
-                        >
-                          {action.icon}
-                        </div>
-                      );
+                      return this.renderItem(action);
                     }
                   })}
               </div>

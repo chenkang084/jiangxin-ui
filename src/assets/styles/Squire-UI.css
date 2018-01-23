@@ -129,6 +129,9 @@ input[type="text"] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
 }
 .drop {
   border: 1px solid #dbdbdb;

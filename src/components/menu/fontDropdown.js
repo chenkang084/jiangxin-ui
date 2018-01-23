@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Select, Row, Col, Popover } from "antd";
+import { Select, Popover, Input, Button } from "antd";
 const Option = Select.Option;
 
 const FontSize = props => {
@@ -798,4 +798,81 @@ const SetColor = props => {
   );
 };
 
-export { FontFamily, FontSize, FontColor, FontBgColor };
+class SetLink extends React.Component {
+  state = {
+    link: ""
+  };
+
+  handleChange = event => {
+    this.setState({ link: event.currentTarget.value });
+  };
+
+  handleAddLink = () => {
+    this.props.handleEvent(this.props.action, this.state.link);
+    this.setState({ link: "" });
+  };
+
+  render() {
+    const linkForm = (
+      <div>
+        <p>
+          <Input
+            placeholder={this.props.placeholder}
+            onChange={this.handleChange}
+            value={this.state.link}
+          />
+        </p>
+        <p style={{ textAlign: "right", margin: "0px" }}>
+          <Button type="primary" onClick={this.handleAddLink}>
+            添加
+          </Button>
+        </p>
+      </div>
+    );
+
+    return (
+      <Popover placement="bottom" content={linkForm} trigger="hover">
+        <div
+          title="字体颜色"
+          id="selectColor"
+          data-action="selectColor"
+          className="item"
+          style={{ margin: "-5px -4px 0 -4px" }}
+        >
+          {this.props.icon}
+        </div>
+      </Popover>
+    );
+  }
+}
+
+const SetHrefLink = props => {
+  return (
+    <SetLink
+      placeholder="请输入超链接地址"
+      handleEvent={props.handleEvent}
+      action="addLink"
+      icon={<i className="fa fa-link" />}
+    />
+  );
+};
+
+const SetImgLink = props => {
+  return (
+    <SetLink
+      placeholder="请输入图片超链接"
+      handleEvent={props.handleEvent}
+      action="addImg"
+      icon={<i className="fa fa-picture-o" />}
+    />
+  );
+};
+
+export {
+  FontFamily,
+  FontSize,
+  FontColor,
+  FontBgColor,
+  SetHrefLink,
+  SetImgLink
+};
