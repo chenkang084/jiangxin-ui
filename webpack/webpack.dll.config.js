@@ -84,6 +84,10 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin("main.css"),
+    new webpack.ProvidePlugin({
+      Squire: "Squire"
+    }),
+
     new webpack.DllPlugin({
       path: path.resolve(
         rootPath,
