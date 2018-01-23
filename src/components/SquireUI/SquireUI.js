@@ -107,7 +107,9 @@ export default class SquireUI extends React.Component {
             style={{ display: this.props.showSourceCode ? "block" : "none" }}
           >
             <div className="source-code" id="source-code">
-              html
+              <div
+                dangerouslySetInnerHTML={{ __html: this.props.sourceCode }}
+              />
             </div>
           </div>
         </div>

@@ -25,6 +25,12 @@ export default class Menus extends React.Component {
           icon: <i className="fa fa-html5" aria-hidden="true" />,
           dataAction: "sourceCode",
           title: "查看源代码"
+        },
+        {
+          type: "align",
+          icon: <i className="fa fa-trash" aria-hidden="true" />,
+          dataAction: "cleanText",
+          title: "清空"
         }
       ]
     },
@@ -154,9 +160,7 @@ export default class Menus extends React.Component {
     this.props.executeDropDownAction(action, value);
   };
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   renderItem = action => {
     if (action.type === "dropDown") {

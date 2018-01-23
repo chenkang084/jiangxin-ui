@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Menu from "../menu/menu";
 import SquireUI from "../SquireUI/SquireUI";
+import "../../../node_modules/prismjs/themes/prism.css";
+const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,7 @@ export default class Home extends React.Component {
 
   state = {
     showSourceCode: false,
+    sourceCode: "",
     editor: null
   };
 
@@ -21,10 +24,21 @@ export default class Home extends React.Component {
     this.actionList = {
       sourceCode: {
         add: () => {
-          this.setState({ showSourceCode: true });
+          this.setState({
+            showSourceCode: true,
+            sourceCode: Prism.highlight(
+              this.editor.getHTML(),
+              Prism.languages.html
+            )
+          });
         },
         remove: () => {
           this.setState({ showSourceCode: false });
+        }
+      },
+      cleanText: {
+        add: () => {
+          this.editor.setHTML("");
         }
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
@@ -111,6 +125,7 @@ export default class Home extends React.Component {
         <SquireUI
           setIframe={this.setIframe}
           showSourceCode={this.state.showSourceCode}
+          sourceCode={this.state.sourceCode}
         />
       </div>
     );

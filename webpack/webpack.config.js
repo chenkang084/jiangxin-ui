@@ -127,13 +127,13 @@ if (env !== "dev") {
   console.log(
     "=============================start uglify============================="
   );
-  // webpackConfig.plugins = webpackConfig.plugins.concat([
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     compress: {
-  //       warnings: false
-  //     }
-  //   })
-  // ]);
+  webpackConfig.plugins = webpackConfig.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]);
 }
 
 module.exports = webpackConfig;
