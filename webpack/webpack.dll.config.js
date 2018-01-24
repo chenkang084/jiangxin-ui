@@ -11,7 +11,7 @@ const _ = require("lodash");
 const env = _.trim(process.env.NODE_ENV);
 
 module.exports = {
-  entry: ["react", "react-dom", "antd", "babel-polyfill"],
+  entry: ["react", "react-dom", "antd"],
   output: {
     path: rootPath + "/src/assets/library/dll", //打包后的文件存放的地方
     filename: "vendor.dll.js", //打包后输出文件的文件名
