@@ -11,7 +11,7 @@ console.log(path.join(rootPath, "src/app.js"));
 
 const webpackConfig = {
   devtool: "module-source-map",
-  entry: [path.join(rootPath, "src/app.js")],
+  entry: [path.join(rootPath, "src/index.js")],
   output: {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
@@ -120,6 +120,9 @@ const webpackConfig = {
         rootPath,
         "./src/assets/library/dll/main-manifest.json"
       ))
+    }),
+    new webpack.DefinePlugin({
+      env: "'" + env + "'"
     })
   ]
 };
