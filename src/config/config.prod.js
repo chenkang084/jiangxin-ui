@@ -1,3 +1,5 @@
-export const config = {
+const config = {
   app: "jx"
 };
+
+export default config;

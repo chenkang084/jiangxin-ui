@@ -1,3 +1,10 @@
-export const config = {
-  app: "jx"
+const config = {
+  app: "jx",
+  uri: {
+    editor: {
+      api: ""
+    }
+  }
 };
+
+export default config;

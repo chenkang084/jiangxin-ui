@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Menu from "../menu/menu";
-import SquireUI from "../SquireUI/SquireUI";
-import "../../../node_modules/prismjs/themes/prism.css";
+import Menu from "../components/menu/menu";
+import SquireUI from "../components/SquireUI/SquireUI";
+import "../../node_modules/prismjs/themes/prism.css";
 import {
   saveArticleToStorage,
   getArticleFromStorage
-} from "../../utils/artile.util";
+} from "../utils/artile.util";
 const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
@@ -49,6 +49,11 @@ export default class Home extends React.Component {
       cleanText: {
         add: () => {
           this.editor.setHTML("");
+        }
+      },
+      upLoad: {
+        add: () => {
+          console.log("upload");
         }
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
@@ -126,11 +131,11 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <header className="header">
+        <section className="header">
           <div className="wrapper">
             <h1 style={{ color: "#fff" }}>酱辛公众号编辑器</h1>
           </div>
-        </header>
+        </section>
         <Menu
           executeAction={this.executeAction}
           executeAlign={this.executeAlign}

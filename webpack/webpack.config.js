@@ -88,7 +88,7 @@ const webpackConfig = {
                 localIdentName: "[hash:base64:5]"
               }
             },
-            "postcss-loader",
+            // "postcss-loader",
             "less-loader"
           ]
         })
