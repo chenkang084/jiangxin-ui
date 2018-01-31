@@ -11,7 +11,7 @@ console.log(path.join(rootPath, "src/app.js"));
 
 const webpackConfig = {
   devtool: "module-source-map",
-  entry: [path.join(rootPath, "src/index.js")],
+  entry: ["babel-polyfill", path.join(rootPath, "src/index.js")],
   output: {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
@@ -24,7 +24,14 @@ const webpackConfig = {
     port: 9002,
     disableHostCheck: true,
     historyApiFallback: true, // 不跳转
-    inline: true // 实时刷新
+    inline: true, // 实时刷新
+    proxy: {
+      "/api": {
+        target: "http://192.168.1.105:9001/",
+        changeOrigin: true,
+        secure: false
+      }
+    }
   },
   node: {
     fs: "empty"
