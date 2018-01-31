@@ -96,7 +96,7 @@ const SetColor = props => {
           <tr className="edui-colorpicker-tablefirstrow edui-default">
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffffff"
                 href="javascript:"
                 unselectable="on"
@@ -111,7 +111,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffd7d5"
                 href="javascript:"
                 unselectable="on"
@@ -126,7 +126,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffdaa9"
                 href="javascript:"
                 unselectable="on"
@@ -141,7 +141,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="fffed5"
                 href="javascript:"
                 unselectable="on"
@@ -156,7 +156,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d4fa00"
                 href="javascript:"
                 unselectable="on"
@@ -171,7 +171,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="73fcd6"
                 href="javascript:"
                 unselectable="on"
@@ -186,7 +186,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="a5c8ff"
                 href="javascript:"
                 unselectable="on"
@@ -201,7 +201,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffacd5"
                 href="javascript:"
                 unselectable="on"
@@ -216,7 +216,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff7faa"
                 href="javascript:"
                 unselectable="on"
@@ -233,7 +233,7 @@ const SetColor = props => {
           <tr className="edui-default">
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d6d6d6"
                 href="javascript:"
                 unselectable="on"
@@ -248,7 +248,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffacaa"
                 href="javascript:"
                 unselectable="on"
@@ -263,7 +263,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffb995"
                 href="javascript:"
                 unselectable="on"
@@ -278,7 +278,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="fffb00"
                 href="javascript:"
                 unselectable="on"
@@ -293,7 +293,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="73fa79"
                 href="javascript:"
                 unselectable="on"
@@ -308,7 +308,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="00fcff"
                 href="javascript:"
                 unselectable="on"
@@ -323,7 +323,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="78acfe"
                 href="javascript:"
                 unselectable="on"
@@ -338,7 +338,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d84fa9"
                 href="javascript:"
                 unselectable="on"
@@ -353,7 +353,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff4f79"
                 href="javascript:"
                 unselectable="on"
@@ -370,7 +370,7 @@ const SetColor = props => {
           <tr className="edui-default">
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="b2b2b2"
                 href="javascript:"
                 unselectable="on"
@@ -385,7 +385,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d7aba9"
                 href="javascript:"
                 unselectable="on"
@@ -400,7 +400,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff6827"
                 href="javascript:"
                 unselectable="on"
@@ -415,7 +415,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffda51"
                 href="javascript:"
                 unselectable="on"
@@ -430,7 +430,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="00d100"
                 href="javascript:"
                 unselectable="on"
@@ -445,7 +445,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="00d5ff"
                 href="javascript:"
                 unselectable="on"
@@ -460,7 +460,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="0080ff"
                 href="javascript:"
                 unselectable="on"
@@ -475,7 +475,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ac39ff"
                 href="javascript:"
                 unselectable="on"
@@ -490,7 +490,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff2941"
                 href="javascript:"
                 unselectable="on"
@@ -507,7 +507,7 @@ const SetColor = props => {
           <tr className="edui-default">
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="888888"
                 href="javascript:"
                 unselectable="on"
@@ -522,7 +522,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="7a4442"
                 href="javascript:"
                 unselectable="on"
@@ -537,7 +537,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff4c00"
                 href="javascript:"
                 unselectable="on"
@@ -552,7 +552,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ffa900"
                 href="javascript:"
                 unselectable="on"
@@ -567,7 +567,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="3da742"
                 href="javascript:"
                 unselectable="on"
@@ -582,7 +582,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="3daad6"
                 href="javascript:"
                 unselectable="on"
@@ -597,7 +597,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="0052ff"
                 href="javascript:"
                 unselectable="on"
@@ -612,7 +612,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="7a4fd6"
                 href="javascript:"
                 unselectable="on"
@@ -627,7 +627,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d92142"
                 href="javascript:"
                 unselectable="on"
@@ -644,7 +644,7 @@ const SetColor = props => {
           <tr className="edui-default">
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="000000"
                 href="javascript:"
                 unselectable="on"
@@ -659,7 +659,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="7b0c00"
                 href="javascript:"
                 unselectable="on"
@@ -674,7 +674,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ff4c41"
                 href="javascript:"
                 unselectable="on"
@@ -689,7 +689,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="d6a841"
                 href="javascript:"
                 unselectable="on"
@@ -704,7 +704,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="407600"
                 href="javascript:"
                 unselectable="on"
@@ -719,7 +719,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="007aaa"
                 href="javascript:"
                 unselectable="on"
@@ -734,7 +734,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="021eaa"
                 href="javascript:"
                 unselectable="on"
@@ -749,7 +749,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="797baa"
                 href="javascript:"
                 unselectable="on"
@@ -764,7 +764,7 @@ const SetColor = props => {
             </td>
             <td style={{ padding: "2px" }} className="edui-default">
               <a
-                hidefocus=""
+                
                 title="ab1942"
                 href="javascript:"
                 unselectable="on"

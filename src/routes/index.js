@@ -1,21 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, browserHistory } from "react-router";
-import Editor from "../components/editor/editor";
-import App from "../components/app";
-import Home from "../components/home/home";
+import {
+  Router,
+  Route,
+  IndexRoute,
+  browserHistory,
+  Provider
+} from "react-router";
+import Editor from "./editor";
+import App from "./app";
+import Home from "./home";
+import Login from "./login";
+import { editorAxiosService } from "../services/axios.service";
 
-function handleRoute(params) {
-  console.log(params);
+class AppRouters extends React.Component {
+  // constructor(props) {
+  //   super(props);
+
+  //   this.login();
+  // }
+
+  // state = { isLogin: false };
+
+  // login = async () => {
+  //   console.log("login");
+  //   const user = await editorAxiosService.get("api/user/users");
+  //   console.log(user);
+  //   this.setState({ user: user });
+  // };
+
+  render() {
+    return (
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Editor} />
+          <Route path="home" component={Home} />
+        </Route>
+
+        <Route path="/login" component={Login} />
+      </Router>
+    );
+  }
 }
 
-const appRouters = () => (
-  <Router history={browserHistory}>
-    <Route path="/" component={App} onChange={handleRoute}>
-      <IndexRoute component={Editor} />
-      <Route path="home" component={Home} />
-    </Route>
-  </Router>
-);
-
-export default appRouters;
+export default AppRouters;

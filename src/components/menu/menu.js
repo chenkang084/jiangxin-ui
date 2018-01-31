@@ -31,6 +31,12 @@ export default class Menus extends React.Component {
           icon: <i className="fa fa-trash" aria-hidden="true" />,
           dataAction: "cleanText",
           title: "清空"
+        },
+        {
+          type: "align",
+          icon: <i className="fa fa-upload" aria-hidden="true" />,
+          dataAction: "upLoad",
+          title: "上传"
         }
       ]
     },
