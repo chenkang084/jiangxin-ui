@@ -13,12 +13,26 @@
     float: right;
     margin-right: 10px;
     .userInfo {
+      width: 100px;
+      .loginLink {
+        display: inline-block;
+        height: inherit;
+        width: inherit;
+        color: #314659 !important;
+      }
+      text-align: center;
       i {
         font-size: 18px;
       }
-      i:hover {
-        color: #1890ff;
+      .username {
+        font-size: 14px;
+        padding: 0 10px;
       }
+    }
+    .userInfo:hover {
+      color: #1890ff;
+      cursor: pointer;
+      background: #1890ff2e;
     }
   }
 }

@@ -11,7 +11,6 @@ const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    // this.setIframe = this.setIframe.bind(this);
   }
 
   state = {
@@ -29,7 +28,7 @@ export default class Home extends React.Component {
     if (prevArticle) {
       this.editor.setHTML(prevArticle);
     }
-    saveArticleToStorage(this.editor);
+    // saveArticleToStorage(this.editor);
 
     this.actionList = {
       sourceCode: {
