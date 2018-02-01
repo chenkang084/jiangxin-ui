@@ -9,10 +9,14 @@ export default class LoginPage extends React.Component {
   componentDidUpdate() {
     console.log("update");
   }
+
+  goHomePage = () => {
+    this.props.history.push("/");
+  };
   render() {
     return (
       <div>
-        <Login />
+        <Login goHomePage={this.goHomePage} />
       </div>
     );
   }

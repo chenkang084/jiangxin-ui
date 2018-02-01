@@ -27,9 +27,9 @@ const webpackConfig = {
     inline: true, // 实时刷新
     proxy: {
       "/api": {
-        target: "http://192.168.1.105:9001/",
+        target: "http://10.96.199.28:9001/",
         changeOrigin: true,
-        secure: false
+        // secure: true
       }
     }
   },

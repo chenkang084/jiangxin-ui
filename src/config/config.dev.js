@@ -3,8 +3,8 @@ const config = {
   uri: {
     editor: {
       // api: "https://reg.monkeystar.cn/"
-      api: "http://localhost:9002/"
-      // api: "http://192.168.1.114:9001/"
+      // api: "http://localhost:9002/"
+      api: "http://10.240.217.223:9002/"
     }
   }
 };
