@@ -25,7 +25,7 @@ class Login extends React.Component {
 
   checkLogin = async () => {
     try {
-      const result = await editorAxiosService.get("api/auth/isLogin");
+      const result = await editorAxiosService.get("api/auth/userInfo");
 
       if (result && result.data && result.data.status === "ok") {
         this.props.goHomePage();
