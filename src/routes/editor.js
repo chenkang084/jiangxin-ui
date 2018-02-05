@@ -2,11 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Menu from "../components/menu/menu";
 import SquireUI from "../components/SquireUI/SquireUI";
+import Title from "../components/menu/title";
 import "../../node_modules/prismjs/themes/prism.css";
 import {
   saveArticleToStorage,
-  getArticleFromStorage
+  getArticleFromStorage,
+  downloadFile
 } from "../utils/artile.util";
+import UploadModal from "./upload.modal";
+
 const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
@@ -16,13 +20,18 @@ export default class Home extends React.Component {
   state = {
     showSourceCode: false,
     sourceCode: "",
-    editor: null
+    editor: null,
+    title: "",
+    abstract: "",
+    uploadModalVisible: false
   };
 
   setIframe = iframe => {
     this.iframe = iframe;
     this.editor = iframe.contentWindow.editor;
-    this.setState({ editor: iframe.contentWindow.editor });
+    this.setState({
+      editor: iframe.contentWindow.editor
+    });
 
     const prevArticle = getArticleFromStorage();
     if (prevArticle) {
@@ -53,6 +62,9 @@ export default class Home extends React.Component {
       upLoad: {
         add: () => {
           console.log("upload");
+          console.log(this);
+
+          this.handleUploadModalVisible(true);
         }
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
@@ -94,6 +106,15 @@ export default class Home extends React.Component {
         remove: () => {
           this.editor.setTextAlignment("left");
         }
+      },
+      download: {
+        add: () => {
+          console.log("...");
+          const html = this.editor.getHTML();
+          console.log(html);
+
+          downloadFile("test", html);
+        }
       }
     };
   };
@@ -115,7 +136,7 @@ export default class Home extends React.Component {
       actionFn = this.actionList[action].add;
     }
 
-    actionFn.call(this.editor, value);
+    actionFn && actionFn.call(this.editor, value);
   };
 
   executeAlign = action => {
@@ -124,7 +145,26 @@ export default class Home extends React.Component {
       actionFn = this.actionList[action].add;
     }
 
-    actionFn.call(this.editor);
+    actionFn && actionFn.call(this.editor);
+  };
+
+  setTitle = (type, value) => {
+    if (type) {
+      switch (type) {
+        case "title":
+          this.setState({ title: value });
+          break;
+        case "abstract":
+          this.setState({ abstract: value });
+          break;
+        default:
+          break;
+      }
+    }
+  };
+
+  handleUploadModalVisible = flag => {
+    this.setState({ uploadModalVisible: flag });
   };
 
   render() {
@@ -141,10 +181,17 @@ export default class Home extends React.Component {
           executeDropDownAction={this.executeDropDownAction}
           editor={this.state.editor}
         />
+        <Title setTitle={this.setTitle} />
         <SquireUI
           setIframe={this.setIframe}
           showSourceCode={this.state.showSourceCode}
           sourceCode={this.state.sourceCode}
+        />
+        <UploadModal
+          uploadModalVisible={this.state.uploadModalVisible}
+          handleUploadModalVisible={this.handleUploadModalVisible}
+          title={this.state.title}
+          abstract={this.state.abstract}
         />
       </div>
     );

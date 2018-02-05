@@ -56,7 +56,11 @@ export default class Header extends React.Component {
 
     return (
       <div className={styles.header}>
-        <div className={styles.left}>header</div>
+        <div className={styles.left}>
+          <div className={styles.logoWrap}>
+            <img src="imgs/logo/logo.png"/>
+          </div>
+        </div>
         <div className={styles.right}>
           <div className={styles.userInfo}>
             {!this.state.isLogin ? (

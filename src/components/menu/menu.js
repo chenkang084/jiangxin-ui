@@ -27,7 +27,7 @@ export default class Menus extends React.Component {
           title: "查看源代码"
         },
         {
-          type: "align",
+          type: "align",// 点击完，没有选择状态的css
           icon: <i className="fa fa-trash" aria-hidden="true" />,
           dataAction: "cleanText",
           title: "清空"
@@ -37,6 +37,12 @@ export default class Menus extends React.Component {
           icon: <i className="fa fa-upload" aria-hidden="true" />,
           dataAction: "upLoad",
           title: "上传"
+        },
+        {
+          type: "align",
+          icon: <i className="fa fa-download" aria-hidden="true" />,
+          dataAction: "download",
+          title: "下载到本地"
         }
       ]
     },
