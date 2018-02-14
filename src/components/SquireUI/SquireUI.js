@@ -78,7 +78,7 @@ export default class SquireUI extends React.Component {
             "  padding: 0 10px;" +
             "}" +
             "img{" +
-            "max-width:500px!important;}"
+            "min-width:500px!important;}"
         );
 
         self.props.setIframe(iframe);
@@ -89,7 +89,7 @@ export default class SquireUI extends React.Component {
       return iframe.contentWindow.editor;
     };
 
-    window.sq = new SquireUI({ replace: "textarea#foo", height: 450 });
+    window.sq = new SquireUI({ replace: "textarea#foo", height: 400 });
   }
 
   render() {

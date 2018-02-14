@@ -1,7 +1,7 @@
 {
   "remotePath": "/home/chenkang/git/wechat-export-article",
   "host": "10.240.217.223",
-  "username": "root",
+  "username": "chenkang",
   "password": "root",
   "port": 22,
   "secure": false,
