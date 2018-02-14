@@ -61,6 +61,11 @@ iframe {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.menu .item-disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
 .menu .group {
   border-radius: 3px;
   display: inline-block;

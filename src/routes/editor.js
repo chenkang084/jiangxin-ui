@@ -61,9 +61,6 @@ export default class Home extends React.Component {
       },
       upLoad: {
         add: () => {
-          console.log("upload");
-          console.log(this);
-
           this.handleUploadModalVisible(true);
         }
       },
@@ -114,6 +111,11 @@ export default class Home extends React.Component {
           console.log(html);
 
           downloadFile("test", html);
+        }
+      },
+      saveToLocal: {
+        add: () => {
+          saveArticleToStorage(this.editor.getHTML());
         }
       }
     };
@@ -180,6 +182,8 @@ export default class Home extends React.Component {
           executeAlign={this.executeAlign}
           executeDropDownAction={this.executeDropDownAction}
           editor={this.state.editor}
+          title={this.state.title}
+          abstract={this.state.abstract}
         />
         <Title setTitle={this.setTitle} />
         <SquireUI
