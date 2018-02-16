@@ -9,7 +9,7 @@ import {
   getArticleFromStorage,
   downloadFile
 } from "../utils/artile.util";
-import UploadModal from "./upload.modal";
+import UploadModal from "../components/menu/upload.modal";
 
 const Prism = require("prismjs");
 export default class Home extends React.Component {

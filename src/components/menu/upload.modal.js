@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Modal, Button, Form, Input } from "antd";
+import { Modal, Button, Form, Input, notification } from "antd";
+import { editorAxiosService } from "../../services/axios.service";
 const FormItem = Form.Item;
 
 export default class UploadModal extends React.Component {
   state = { emailListError: "", submitFlag: true };
 
-  handleOk = e => {
+  handleOk = async e => {
     this.props.handleUploadModalVisible(false);
-    
+    await editorAxiosService.post("api/editor/article", {
+      title: "test",
+      content: "content"
+    });
+
+    notification.success({ message: "文件上传成功！" });
   };
   handleCancel = e => {
     this.props.handleUploadModalVisible(false);
