@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import Menu from "../components/menu/menu";
 import SquireUI from "../components/SquireUI/SquireUI";
 import Title from "../components/menu/title";
-import "../../node_modules/prismjs/themes/prism.css";
 import {
   saveArticleToStorage,
   getArticleFromStorage,
   downloadFile
 } from "../utils/artile.util";
-import UploadModal from "./upload.modal";
+import UploadModal from "../components/menu/upload.modal";
+import { style_html } from "../utils/beautify.util";
+import { message } from "antd";
 
-const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -21,8 +21,13 @@ export default class Home extends React.Component {
     showSourceCode: false,
     sourceCode: "",
     editor: null,
-    title: "",
-    abstract: "",
+    titleInfo: {
+      title: "",
+      abstract: "",
+      coverImg: "",
+      author: ""
+    },
+    content: "",
     uploadModalVisible: false
   };
 
@@ -42,12 +47,11 @@ export default class Home extends React.Component {
     this.actionList = {
       sourceCode: {
         add: () => {
+          // 格式化html代码
+          const html_format = style_html(this.editor.getHTML());
           this.setState({
             showSourceCode: true,
-            sourceCode: Prism.highlight(
-              this.editor.getHTML(),
-              Prism.languages.html
-            )
+            sourceCode: html_format
           });
         },
         remove: () => {
@@ -57,11 +61,16 @@ export default class Home extends React.Component {
       cleanText: {
         add: () => {
           this.editor.setHTML("");
+          this.setState({ sourceCode: "" });
         }
       },
       upLoad: {
         add: () => {
-          this.handleUploadModalVisible(true);
+          if (this.props.loginStatus) {
+            this.handleUploadModalVisible(true);
+          } else {
+            message.error("请先登录！");
+          }
         }
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
@@ -152,21 +161,23 @@ export default class Home extends React.Component {
 
   setTitle = (type, value) => {
     if (type) {
-      switch (type) {
-        case "title":
-          this.setState({ title: value });
-          break;
-        case "abstract":
-          this.setState({ abstract: value });
-          break;
-        default:
-          break;
-      }
+      this.setState(prev => {
+        console.log(prev);
+        const titleInfo = prev.titleInfo;
+        titleInfo[type] = value;
+        return {
+          titleInfo
+        };
+      });
     }
   };
 
   handleUploadModalVisible = flag => {
     this.setState({ uploadModalVisible: flag });
+  };
+
+  updateArticleBySourcecode = sourcecode => {
+    this.editor.setHTML(sourcecode);
   };
 
   render() {
@@ -182,20 +193,21 @@ export default class Home extends React.Component {
           executeAlign={this.executeAlign}
           executeDropDownAction={this.executeDropDownAction}
           editor={this.state.editor}
-          title={this.state.title}
-          abstract={this.state.abstract}
+          titleInfo={this.state.titleInfo}
+          loginStatus={this.props.loginStatus}
         />
         <Title setTitle={this.setTitle} />
         <SquireUI
           setIframe={this.setIframe}
           showSourceCode={this.state.showSourceCode}
           sourceCode={this.state.sourceCode}
+          updateArticleBySourcecode={this.updateArticleBySourcecode}
         />
         <UploadModal
           uploadModalVisible={this.state.uploadModalVisible}
           handleUploadModalVisible={this.handleUploadModalVisible}
-          title={this.state.title}
-          abstract={this.state.abstract}
+          titleInfo={this.state.titleInfo}
+          content={this.editor && this.editor.getHTML()}
         />
       </div>
     );

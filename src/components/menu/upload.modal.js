@@ -1,14 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Modal, Button, Form, Input } from "antd";
+import { Modal, Button, Form, Input, notification } from "antd";
+import { editorAxiosService } from "../../services/axios.service";
 const FormItem = Form.Item;
 
 export default class UploadModal extends React.Component {
-  state = { emailListError: "", submitFlag: true };
+  state = { emailListError: "", submitFlag: !true };
 
-  handleOk = e => {
+  handleOk = async e => {
     this.props.handleUploadModalVisible(false);
-    
+    console.log("...");
+
+    try {
+      await editorAxiosService.post("api/editor/article", {
+        ...this.props.titleInfo,
+        content: this.props.content
+      });
+
+      notification.success({ message: "文件上传成功！" });
+    } catch (error) {
+      notification.error({ message: "文件上传失败！" });
+    }
   };
   handleCancel = e => {
     this.props.handleUploadModalVisible(false);
@@ -57,7 +69,7 @@ export default class UploadModal extends React.Component {
             data-type="title"
             id="title_disabled"
             disabled
-            value={this.props.title}
+            value={this.props.titleInfo.title}
             style={{ width: "80%" }}
           />
         </p>
@@ -67,7 +79,7 @@ export default class UploadModal extends React.Component {
             data-type="abstract"
             id="abstract_disabled"
             disabled
-            value={this.props.abstract}
+            value={this.props.titleInfo.abstract}
             style={{
               resize: "none",
               width: "80%",
