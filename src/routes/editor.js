@@ -3,15 +3,14 @@ import ReactDOM from "react-dom";
 import Menu from "../components/menu/menu";
 import SquireUI from "../components/SquireUI/SquireUI";
 import Title from "../components/menu/title";
-import "../../node_modules/prismjs/themes/prism.css";
 import {
   saveArticleToStorage,
   getArticleFromStorage,
   downloadFile
 } from "../utils/artile.util";
 import UploadModal from "../components/menu/upload.modal";
+import { style_html } from "../utils/beautify.util";
 
-const Prism = require("prismjs");
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -42,12 +41,11 @@ export default class Home extends React.Component {
     this.actionList = {
       sourceCode: {
         add: () => {
+          // 格式化html代码
+          const html_format = style_html(this.editor.getHTML());
           this.setState({
             showSourceCode: true,
-            sourceCode: Prism.highlight(
-              this.editor.getHTML(),
-              Prism.languages.html
-            )
+            sourceCode: html_format 
           });
         },
         remove: () => {
@@ -169,6 +167,10 @@ export default class Home extends React.Component {
     this.setState({ uploadModalVisible: flag });
   };
 
+  updateArticleBySourcecode = sourcecode => {
+    this.editor.setHTML(sourcecode);
+  };
+
   render() {
     return (
       <div>
@@ -190,6 +192,7 @@ export default class Home extends React.Component {
           setIframe={this.setIframe}
           showSourceCode={this.state.showSourceCode}
           sourceCode={this.state.sourceCode}
+          updateArticleBySourcecode={this.updateArticleBySourcecode}
         />
         <UploadModal
           uploadModalVisible={this.state.uploadModalVisible}

@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import classnames from "classnames";
+import "../../../node_modules/highlight.js/styles/default.css";
+const hljs = require("highlight.js");
 export default class SquireUI extends React.Component {
+  state = { showEditor: false, html: "" };
+
   componentDidMount() {
     const self = this;
     const SquireUI = function(options) {
@@ -89,8 +93,47 @@ export default class SquireUI extends React.Component {
       return iframe.contentWindow.editor;
     };
 
-    window.sq = new SquireUI({ replace: "textarea#foo", height: 400 });
+    window.sq = new SquireUI({
+      replace: "textarea#foo",
+      height: 400
+    });
   }
+
+  componentDidUpdate() {
+    console.log("updated");
+    if (this.props.showSourceCode) {
+      if (!this.state.html) {
+        // 初始化state的html值
+        const el = document.getElementById("source-code");
+        this.setState({ html: this.props.sourceCode }, () => {
+          hljs.highlightBlock(el);
+        });
+      }
+    }
+  }
+
+  // 显示编辑panel
+  showEditorPanel = () => {
+    this.setState({
+      showEditor: true
+    });
+  };
+
+  // 保存，关闭编辑状态，重新highlight编辑结果代码
+  saveEditorHtml = () => {
+    this.setState({ showEditor: false });
+    const el = document.getElementById("source-code");
+    hljs.highlightBlock(el);
+    // 通过编辑修改的源码，更新原来内容
+    this.props.updateArticleBySourcecode(this.state.html);
+  };
+
+  // 同步更新编辑内容
+  handleTextChange = e => {
+    this.setState({
+      html: e.currentTarget.value
+    });
+  };
 
   render() {
     return (
@@ -106,11 +149,36 @@ export default class SquireUI extends React.Component {
             className="col-centered "
             style={{ display: this.props.showSourceCode ? "block" : "none" }}
           >
-            <div className="source-code" id="source-code">
-              <div
-                dangerouslySetInnerHTML={{ __html: this.props.sourceCode }}
-              />
+            <div
+              style={{
+                height: "30px",
+                lineHeight: "30px",
+                backgroundColor: "#f5f5f5",
+                paddingRight: "40px",
+                textAlign: "right"
+              }}
+            >
+              <a onClick={this.showEditorPanel}>
+                <i className="fa fa-pencil" aria-hidden="true" />
+              </a>
+              <a style={{ marginLeft: "15px" }} onClick={this.saveEditorHtml}>
+                保存
+              </a>
             </div>
+            <pre
+              className={classnames("html", "source-code")}
+              id="source-code"
+              style={{ display: !this.state.showEditor ? "block" : "none" }}
+            >
+              {this.state.html}
+            </pre>
+            <textarea
+              onChange={this.handleTextChange}
+              autoFocus={true}
+              className={classnames("html", "source-code")}
+              value={this.state.html}
+              style={{ display: this.state.showEditor ? "block" : "none" }}
+            />
           </div>
         </div>
       </div>
