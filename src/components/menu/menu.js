@@ -115,7 +115,12 @@ export default class Menus extends React.Component {
             icon: <i className="fa fa-upload" aria-hidden="true" />,
             dataAction: "upLoad",
             title: "上传",
-            disabled: !this.props.title || !this.props.abstract
+            disabled:
+              !this.props.titleInfo ||
+              !this.props.titleInfo.title ||
+              !this.props.titleInfo.abstract ||
+              !this.props.titleInfo.author ||
+              !this.props.titleInfo.coverImg
           },
           {
             type: "align",

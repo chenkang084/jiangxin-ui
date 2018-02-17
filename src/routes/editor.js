@@ -10,6 +10,7 @@ import {
 } from "../utils/artile.util";
 import UploadModal from "../components/menu/upload.modal";
 import { style_html } from "../utils/beautify.util";
+import { message } from "antd";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -20,8 +21,13 @@ export default class Home extends React.Component {
     showSourceCode: false,
     sourceCode: "",
     editor: null,
-    title: "",
-    abstract: "",
+    titleInfo: {
+      title: "",
+      abstract: "",
+      coverImg: "",
+      author: ""
+    },
+    content: "",
     uploadModalVisible: false
   };
 
@@ -45,7 +51,7 @@ export default class Home extends React.Component {
           const html_format = style_html(this.editor.getHTML());
           this.setState({
             showSourceCode: true,
-            sourceCode: html_format 
+            sourceCode: html_format
           });
         },
         remove: () => {
@@ -55,11 +61,16 @@ export default class Home extends React.Component {
       cleanText: {
         add: () => {
           this.editor.setHTML("");
+          this.setState({ sourceCode: "" });
         }
       },
       upLoad: {
         add: () => {
-          this.handleUploadModalVisible(true);
+          if (this.props.loginStatus) {
+            this.handleUploadModalVisible(true);
+          } else {
+            message.error("请先登录！");
+          }
         }
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
@@ -150,16 +161,14 @@ export default class Home extends React.Component {
 
   setTitle = (type, value) => {
     if (type) {
-      switch (type) {
-        case "title":
-          this.setState({ title: value });
-          break;
-        case "abstract":
-          this.setState({ abstract: value });
-          break;
-        default:
-          break;
-      }
+      this.setState(prev => {
+        console.log(prev);
+        const titleInfo = prev.titleInfo;
+        titleInfo[type] = value;
+        return {
+          titleInfo
+        };
+      });
     }
   };
 
@@ -184,8 +193,8 @@ export default class Home extends React.Component {
           executeAlign={this.executeAlign}
           executeDropDownAction={this.executeDropDownAction}
           editor={this.state.editor}
-          title={this.state.title}
-          abstract={this.state.abstract}
+          titleInfo={this.state.titleInfo}
+          loginStatus={this.props.loginStatus}
         />
         <Title setTitle={this.setTitle} />
         <SquireUI
@@ -197,8 +206,8 @@ export default class Home extends React.Component {
         <UploadModal
           uploadModalVisible={this.state.uploadModalVisible}
           handleUploadModalVisible={this.handleUploadModalVisible}
-          title={this.state.title}
-          abstract={this.state.abstract}
+          titleInfo={this.state.titleInfo}
+          content={this.editor && this.editor.getHTML()}
         />
       </div>
     );

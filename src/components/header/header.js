@@ -37,10 +37,12 @@ export default class Header extends React.Component {
       const { data: user } = await editorAxiosService.get("api/auth/userInfo");
       if (user) {
         this.setState({ user, isLogin: true });
+        this.props.setLoginStatus(true);
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
         this.setState({ isLogin: false });
+        // this.props.setLoginStatus(false);
       }
     }
   };
@@ -58,7 +60,7 @@ export default class Header extends React.Component {
       <div className={styles.header}>
         <div className={styles.left}>
           <div className={styles.logoWrap}>
-            <img src="imgs/logo/logo.png"/>
+            <img src="imgs/logo/logo.png" />
           </div>
         </div>
         <div className={styles.right}>

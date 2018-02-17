@@ -102,7 +102,7 @@ export default class SquireUI extends React.Component {
   componentDidUpdate() {
     console.log("updated");
     if (this.props.showSourceCode) {
-      if (!this.state.html) {
+      if (!this.state.html || this.props.sourceCode !== this.state.html) {
         // 初始化state的html值
         const el = document.getElementById("source-code");
         this.setState({ html: this.props.sourceCode }, () => {

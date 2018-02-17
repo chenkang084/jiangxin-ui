@@ -24,6 +24,25 @@ export default class Title extends React.Component {
           />
         </p>
         <p>
+          <label htmlFor="author">作者：</label>
+          <input
+            className="common-input "
+            data-type="author"
+            id="author"
+            onChange={this.handleChange}
+          />
+        </p>
+        <p>
+          <label htmlFor="coverImg">封面：</label>
+          <input
+            className="common-input "
+            data-type="coverImg"
+            id="coverImg"
+            placeholder="封面照片网址"
+            onChange={this.handleChange}
+          />
+        </p>
+        <p>
           <label htmlFor="abstract">摘要：</label>
           <textarea
             data-type="abstract"
