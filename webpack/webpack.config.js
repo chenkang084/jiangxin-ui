@@ -15,7 +15,7 @@ const webpackConfig = {
   output: {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
-    // publicPath: "./public", // 打包时，是否添加前缀
+    publicPath: "/", // 打包时，是否添加前缀
     chunkFilename: "[name]-[id].[chunkhash:8].bundle.js"
   },
   devServer: {
