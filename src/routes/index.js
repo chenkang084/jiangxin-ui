@@ -9,9 +9,8 @@ import {
 } from "react-router";
 import Editor from "./editor";
 import App from "./app";
-import Home from "./home";
+import Article from "./article";
 import Login from "./login";
-import { editorAxiosService } from "../services/axios.service";
 
 class AppRouters extends React.Component {
   // constructor(props) {
@@ -34,7 +33,7 @@ class AppRouters extends React.Component {
       <Router history={browserHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Editor} />
-          <Route path="home" component={Home} />
+          <Route path="article/:id" component={Article} />
         </Route>
 
         <Route path="/login" component={Login} />
