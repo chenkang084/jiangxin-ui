@@ -12,7 +12,7 @@
     "prod": "pm2 start app.js -i 2",
     "clean": "rimraf ./dist/*",
     "build":
-      "npm run clean && cd webpack && webpack --progress --profile --colors --config webpack.config.js",
+      "npm run clean && cd cross-env NODE_ENV=prod  webpack && webpack --progress --profile --colors --config webpack.config.js",
     "dll":
       "rimraf ./src/assets/library/dll/* && cd webpack &&  webpack --colors --profile --display-modules --config webpack.dll.config.js"
   },

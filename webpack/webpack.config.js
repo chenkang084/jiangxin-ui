@@ -85,26 +85,6 @@ const webpackConfig = {
       },
       {
         test: /\.less$/,
-        include: [path.resolve(rootPath, "./src/assets/styles/")],
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                sourceMap: false,
-                minimize: env === "dev" ? false : true,
-                importLoader: 1,
-                localIdentName: "[hash:base64:5]"
-              }
-            },
-            // "postcss-loader",
-            "less-loader"
-          ]
-        })
-      },
-      {
-        test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [

@@ -13,13 +13,17 @@ export default class Article extends React.Component {
   state = {};
 
   async componentDidMount() {
-    const { data: result } = await editorAxiosService.get(
-      `api/editor/articles`
-    );
-    if (result.type === "success") {
-      console.log(result.items);
-      this.setState({ list: result.items });
-    } else {
+    try {
+      const { data: result } = await editorAxiosService.get(
+        `api/editor/articles`
+      );
+      if (result.type === "success") {
+        console.log(result.items);
+        this.setState({ list: result.items });
+      } else {
+        notification.error({ message: "获取文章列表失败！" });
+      }
+    } catch (error) {
       notification.error({ message: "获取文章列表失败！" });
     }
   }
