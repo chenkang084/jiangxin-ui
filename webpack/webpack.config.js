@@ -27,7 +27,7 @@ const webpackConfig = {
     inline: true, // 实时刷新
     proxy: {
       "/api": {
-        target: "http://localhost:9001/",
+        target: "http://10.104.209.82:9001/",
         changeOrigin: true
         // secure: true
       }
@@ -77,8 +77,11 @@ const webpackConfig = {
         })
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
+        test: /\.(eot|otf|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+        loader: "file-loader"
+        // options: {
+        //   name: "[name].[ext]"
+        // }
       },
       {
         test: /\.less$/,

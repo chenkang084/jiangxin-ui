@@ -60,7 +60,9 @@ export default class Header extends React.Component {
       <div className={styles.header}>
         <div className={styles.left}>
           <div className={styles.logoWrap}>
-            <img src="/imgs/logo/logo.png" />
+            <Link to="/">
+              <img src="/imgs/logo/logo.png" />
+            </Link>
           </div>
         </div>
         <div className={styles.right}>

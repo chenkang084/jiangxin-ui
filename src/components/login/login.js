@@ -42,7 +42,6 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         this.setState({ loginLoading: true });
         try {
           const result = await editorAxiosService.post(
@@ -84,7 +83,7 @@ class Login extends React.Component {
             <div>
               <section>
                 <div className={styles.logoWrap}>
-                  <img className={styles.logo} src="imgs/logo/logo.png" />
+                  <img className={styles.logo} src="/imgs/logo/logo.png" />
                 </div>
                 <div className={styles.logoTitle}>酱辛后台系统</div>
               </section>
