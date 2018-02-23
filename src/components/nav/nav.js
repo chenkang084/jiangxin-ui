@@ -6,6 +6,7 @@ import { listenVisibilityState } from "../../utils/events";
 import classnames from "classnames";
 import { getUrlPath } from "../../utils/url";
 import Footer from "../footer/footer";
+// import "../../assets/styles/article-common.less";
 
 export default class Nav extends React.Component {
   constructor(props) {
@@ -17,9 +18,9 @@ export default class Nav extends React.Component {
   }
 
   menus = [
-    { title: "美食生活", href: "/article/1" },
-    { title: "微店", href: "/weiStore" },
-    { title: "了解酱辛", href: "/aboutUs" }
+    { title: "美食生活", href: "/articles" }
+    // { title: "微店", href: "/weiStore" },
+    // { title: "了解酱辛", href: "/aboutUs" }
   ];
 
   componentDidMount() {
@@ -85,7 +86,9 @@ export default class Nav extends React.Component {
             </ul>
           </div>
         </header>
-        <div id="router-content">{this.props.children}</div>
+        <div id="router-content" style={{ marginBottom: "100px" }}>
+          {this.props.children}
+        </div>
         <Footer />
       </div>
     );

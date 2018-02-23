@@ -11,7 +11,7 @@ export default class LoginPage extends React.Component {
   }
 
   goHomePage = () => {
-    this.props.history.push("/");
+    this.props.history.push("/editor");
   };
   render() {
     return (

@@ -10,35 +10,32 @@ import {
 import Editor from "./editor";
 import App from "./app";
 import Article from "./article";
+import ArticleList from "./articleList";
 import Login from "./login";
 import Nav from "../components/nav/nav.js";
 import Home from "../components/home/home.js";
 
 class AppRouters extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.login();
-  // }
-
-  // state = { isLogin: false };
-
-  // login = async () => {
-  //   console.log("login");
-  //   const user = await editorAxiosService.get("api/user/users");
-  //   console.log(user);
-  //   this.setState({ user: user });
-  // };
+  handleRoute = params => {
+    console.log(params);
+    const content = document.getElementById("router-content");
+    if (!content.className) {
+      content.className = "animated bounceInRight";
+      setTimeout(() => {
+        content.className = "";
+      }, 1000);
+    }
+  };
 
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={browserHistory} >
         <Route path="/login" component={Login} />
-
-        <Route path="/" component={Nav}>
+        <Route path="/" component={Nav} onChange={this.handleRoute}>
           <IndexRoute component={Home} />
           <Route path="home" component={Home} />
           <Route path="article/:id" component={Article} />
+          <Route path="articles" component={ArticleList} />
         </Route>
 
         <Route path="/editor" component={App}>

@@ -28,7 +28,7 @@ export default class Header extends React.Component {
   loginOut = async () => {
     try {
       await editorAxiosService.put("api/auth/signOut");
-      window.location.href = "/";
+      window.location.href = "/editor";
     } catch (error) {}
   };
 

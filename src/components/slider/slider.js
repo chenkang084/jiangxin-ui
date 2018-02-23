@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Slider from "react-slick";
 import styles from "./slider.less";
-// console.log(styles);
 
 export default class CustomSlider extends React.Component {
   defaultSettings = {
@@ -26,7 +25,7 @@ export default class CustomSlider extends React.Component {
           <div className={styles.sliderImgContainer}>
             <div
               style={{
-                background: "url(../../assets/imgs/sliders/1.jpg) no-repeat",
+                background: "url(/imgs/sliders/1.jpg) no-repeat",
                 width: "100%",
                 height: "600px",
                 backgroundSize: "cover"
@@ -36,7 +35,7 @@ export default class CustomSlider extends React.Component {
           <div className={styles.sliderImgContainer}>
             <div
               style={{
-                background: "url(../../assets/imgs/sliders/2.jpg) no-repeat",
+                background: "url(/imgs/sliders/2.jpg) no-repeat",
                 width: "100%",
                 height: "600px",
                 backgroundSize: "cover"

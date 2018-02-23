@@ -49,13 +49,13 @@ export default class Footer extends React.Component {
             <ul>
               <li>
                 <div>
-                  <img src="../../assets/imgs/qrcode/official_account.jpg" />
+                  <img src="/imgs/qrcode/official_account.jpg" />
                   <p className={styles.qrcodeText}>公众号</p>
                 </div>
               </li>
               <li>
                 <div>
-                  <img src="../../assets/imgs/qrcode/wei_store.jpg" />
+                  <img src="/imgs/qrcode/wei_store.jpg" />
                   <p className={styles.qrcodeText}>微店</p>
                 </div>
               </li>

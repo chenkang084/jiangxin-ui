@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import styles from "./login.less";
 import { Form, Icon, Input, Button, Checkbox, Alert, Spin } from "antd";
 import { editorAxiosService } from "../../services/axios.service";
-// import classnames from "classnames";
 const FormItem = Form.Item;
 const antIcon = <Icon type="loading" style={{ fontSize: 44 }} spin />;
 
@@ -54,7 +53,7 @@ class Login extends React.Component {
               loginError: false,
               loginErrorMsg: ""
             });
-            window.location.href = "/";
+            window.location.href = "/editor";
           } else {
             this.setState({
               loginError: true,
