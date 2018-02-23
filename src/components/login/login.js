@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import styles from "./login.less";
 import { Form, Icon, Input, Button, Checkbox, Alert, Spin } from "antd";
 import { editorAxiosService } from "../../services/axios.service";
-// import classnames from "classnames";
 const FormItem = Form.Item;
 const antIcon = <Icon type="loading" style={{ fontSize: 44 }} spin />;
 
@@ -42,7 +41,6 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         this.setState({ loginLoading: true });
         try {
           const result = await editorAxiosService.post(
@@ -55,7 +53,7 @@ class Login extends React.Component {
               loginError: false,
               loginErrorMsg: ""
             });
-            window.location.href = "/";
+            window.location.href = "/editor";
           } else {
             this.setState({
               loginError: true,
@@ -84,7 +82,7 @@ class Login extends React.Component {
             <div>
               <section>
                 <div className={styles.logoWrap}>
-                  <img className={styles.logo} src="imgs/logo/logo.png" />
+                  <img className={styles.logo} src="/imgs/logo/logo.png" />
                 </div>
                 <div className={styles.logoTitle}>酱辛后台系统</div>
               </section>

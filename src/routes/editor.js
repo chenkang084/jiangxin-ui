@@ -11,6 +11,7 @@ import {
 import UploadModal from "../components/menu/upload.modal";
 import { style_html } from "../utils/beautify.util";
 import { message } from "antd";
+import "../assets/styles/common.css";
 
 export default class Home extends React.Component {
   constructor(props) {

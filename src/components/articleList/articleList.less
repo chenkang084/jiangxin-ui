@@ -1,0 +1,46 @@
+.articleWrap {
+  width: 80%;
+  margin: 0 auto;
+  .articleContainer {
+    margin-left: 50px;
+    .articleRow {
+      padding: 20px 20px 0 20px;
+      border-bottom: 1px solid #ccc;
+
+      .info {
+        padding-bottom: 10px;
+        width: 100%;
+        .cover {
+          padding-left: 20px;
+          width: 240px;
+          display: inline-block;
+          vertical-align: top;
+          img {
+            width: 200px;
+          }
+        }
+        .abstractWrap {
+          display: inline-block;
+          width: ~"calc(100% - 240px)";
+          .title {
+            font-weight: 600;
+            margin: 0;
+            padding: 10px 0;
+            font-size: 18px;
+          }
+          .abstract {
+            height: 40px;
+            overflow: hidden;
+          }
+          .authorInfo {
+            .author {
+              color: #404040;
+              margin-right: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
