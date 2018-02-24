@@ -7,7 +7,7 @@ import {
   saveArticleToStorage,
   getArticleFromStorage,
   downloadFile
-} from "../utils/artile.util";
+} from "../utils/article.util";
 import UploadModal from "../components/menu/upload.modal";
 import { style_html } from "../utils/beautify.util";
 import { message } from "antd";

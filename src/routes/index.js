@@ -14,13 +14,21 @@ import ArticleList from "./articleList";
 import Login from "./login";
 import Nav from "../components/nav/nav.js";
 import Home from "../components/home/home.js";
+import { removeMetaReferrer, addMetaReferrer } from "../utils/article.util";
 
 class AppRouters extends React.Component {
   handleRoute = params => {
     console.log(params);
+
+    if (window.location.pathname.indexOf("/article") > -1) {
+      addMetaReferrer();
+    } else {
+      removeMetaReferrer();
+    }
+
     const content = document.getElementById("router-content");
     if (!content.className) {
-      content.className = "animated bounceInRight";
+      content.className = "animated fadeIn";
       setTimeout(() => {
         content.className = "";
       }, 1000);
@@ -29,7 +37,7 @@ class AppRouters extends React.Component {
 
   render() {
     return (
-      <Router history={browserHistory} >
+      <Router history={browserHistory}>
         <Route path="/login" component={Login} />
         <Route path="/" component={Nav} onChange={this.handleRoute}>
           <IndexRoute component={Home} />
