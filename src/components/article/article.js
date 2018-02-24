@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./article.less";
 import classnames from "classnames";
+import config from "../../config";
 
+console.log(config);
 export default class Article extends React.Component {
   // componentWillMount() {
   //   addMetaReferrer();
@@ -29,7 +31,7 @@ export default class Article extends React.Component {
 
         <iframe
           id="test"
-          src={`http://10.104.209.82:9001/articles/${this.props.title}.html`}
+          src={`${config.uri.iframeUri}articles/${this.props.title}.html`}
           style={{ minHeight: "800px" }}
         />
       </div>
