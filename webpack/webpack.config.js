@@ -44,13 +44,8 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015", "stage-0", "react"]
-            // plugins: [
-            //   [
-            //     "import",
-            //     { libraryName: "antd", libraryDirectory: "es", style: "css" }
-            //   ]
-            // ]
+            presets: ["es2015", "stage-0", "react"],
+            plugins: [["import", { libraryName: "antd", style: "css" }]]
           }
         }
       },
