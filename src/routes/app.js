@@ -17,9 +17,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header setLoginStatus={this.setLoginStatus} />
-        {React.cloneElement(this.props.children, {
-          loginStatus: this.state.loginStatus
-        })}
+        {this.props.children &&
+          React.cloneElement(this.props.children, {
+            loginStatus: this.state.loginStatus
+          })}
       </div>
     );
   }
