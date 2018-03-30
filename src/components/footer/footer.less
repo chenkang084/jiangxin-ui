@@ -6,6 +6,8 @@
   bottom: 0;
   left: 0;
   z-index: 999;
+  background: #000;
+  opacity: 0.9;
   overflow: hidden;
   .open {
     height: 158px;
@@ -16,8 +18,7 @@
     transition: all @footer-show-speed linear;
   }
   .closeWrap {
-    background: #000;
-    opacity: 0.9;
+
     color: #fff;
     text-align: center;
     position: relative;
@@ -54,10 +55,9 @@
     }
   }
   .footerContainer {
-    background: #000;
-    opacity: 0.9;
-    height: 156px;
+    height: 158px;
     padding-top: 12px;
+    //margin-top: -2px;//fix one white line
     ul {
       text-align: center;
       li {

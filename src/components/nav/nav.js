@@ -86,7 +86,7 @@ export default class Nav extends React.Component {
             </ul>
           </div>
         </header>
-        <div id="router-content" style={{ marginBottom: "100px" }}>
+        <div id="router-content" className="main">
           {this.props.children}
         </div>
         <Footer />
