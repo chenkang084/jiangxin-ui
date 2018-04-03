@@ -1,5 +1,4 @@
 node_modules
-dist
-.vscode
+.vscode/
 src/assets/library/dll
 .idea/

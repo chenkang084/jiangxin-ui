@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "cnpm install && npm run clean && npm run dll",
+    "setup": "npm install --registry=https://registry.npm.taobao.org && npm run clean && npm run dll",
     "dev": "nodemon --config nodemon.json app.js",
     "start":
       "cd webpack && cross-env NODE_ENV=dev webpack-dev-server --progress --color",
@@ -14,7 +14,7 @@
     "build":
       "npm run clean && cd webpack && cross-env NODE_ENV=prod webpack --progress --profile --colors --config webpack.config.js",
     "dll":
-      "rimraf ./src/assets/library/dll/* && cd webpack &&  webpack --colors --profile --display-modules --config webpack.dll.config.js"
+      "rimraf ./src/assets/library/dll/* && cd webpack && webpack --colors --profile --display-modules --config webpack.dll.config.js"
   },
   "repository": {
     "type": "git",
