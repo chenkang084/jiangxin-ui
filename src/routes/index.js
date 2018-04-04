@@ -7,63 +7,131 @@ import {
   browserHistory,
   Provider
 } from "react-router";
-import Editor from "./editor";
-import App from "./app";
-import Article from "./article";
-import ArticleList from "./articleList";
-import Login from "./login";
-import Nav from "../components/nav/nav.js";
-import Home from "../components/home/home.js";
 import { removeMetaReferrer, addMetaReferrer } from "../utils/article.util";
 
-class AppRouters extends React.Component {
-  handleRoute = params => {
-    console.log(params);
-
-    if (window.location.pathname.indexOf("/article") > -1) {
-      addMetaReferrer();
-    } else {
-      removeMetaReferrer();
-    }
-
-    const content = document.getElementById("router-content");
-    if (!content.className) {
-      content.className = "animated fadeIn";
-      setTimeout(() => {
-        content.className = "";
-      }, 1000);
-    }
-  };
-
-  render() {
-    return (
-      <Router history={browserHistory}>
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Nav} onChange={this.handleRoute}>
-          <IndexRoute component={Home} />
-          <Route path="home" component={Home} />
-          <Route path="article/:id" component={Article} />
-          <Route path="articles" component={ArticleList} />
-        </Route>
-
-        <Route path="/editor" component={App}>
-          <IndexRoute component={Editor} />
-        </Route>
-      </Router>
-    );
+const handleRoute = params => {
+  console.log(params);
+  if (window.location.pathname.indexOf("/article") > -1) {
+    addMetaReferrer();
+  } else {
+    removeMetaReferrer();
   }
-}
+  const content = document.getElementById("router-content");
+  if (!content.className) {
+    content.className = "animated fadeIn";
+    setTimeout(() => {
+      content.className = "";
+    }, 1000);
+  }
+};
 
-{
-  /* <Router history={browserHistory}>
-  <Route path="/" component={Nav} onChange={handleRoute}>
-    <IndexRoute component={Home} />
-    <Route path="home" component={Home} />
-    <Route path="weiStore" component={WeiStore} />
-    <Route path="aboutUs" component={AboutUs} />
-    <Route path="article/template" component={ArticleTemplate} />
-  </Route>
-</Router>; */
+const routers = [
+  {
+    path: "/",
+    onChange: handleRoute,
+    getComponent(nextState, cb) {
+      require.ensure(
+        [],
+        require => {
+          cb(null, require("../components/nav/nav").default);
+        },
+        "nav"
+      );
+    },
+    indexRoute: {
+      getComponent(nextState, cb) {
+        require.ensure(
+          [],
+          require => {
+            cb(null, require("../components/home/home").default);
+          },
+          "home"
+        );
+      }
+    },
+    childRoutes: [
+      {
+        path: "home",
+        onChange: handleRoute,
+        getComponent(nextState, cb) {
+          require.ensure(
+            [],
+            require => {
+              cb(null, require("../components/home/home").default);
+            },
+            "home"
+          );
+        }
+      },
+      {
+        path: "articles",
+        onChange: handleRoute,
+        getComponent(nextState, cb) {
+          require.ensure(
+            [],
+            require => {
+              cb(null, require("./articleList").default);
+            },
+            "articles"
+          );
+        }
+      },
+      {
+        path: "article/:id",
+        onChange: handleRoute,
+        getComponent(nextState, cb) {
+          require.ensure(
+            [],
+            require => {
+              cb(null, require("./article").default);
+            },
+            "articleDetail"
+          );
+        }
+      }
+    ]
+  },
+  {
+    path: "/login",
+    getComponent(nextState, cb) {
+      require.ensure(
+        [],
+        require => {
+          cb(null, require("./login").default);
+        },
+        "login"
+      );
+    }
+  },
+  {
+    path: "/editor",
+    getComponent(nextState, cb) {
+      require.ensure(
+        [],
+        require => {
+          cb(null, require("./App").default);
+        },
+        "editorApp"
+      );
+    },
+    indexRoute: {
+      getComponent(nextState, cb) {
+        require.ensure(
+          [],
+          require => {
+            cb(null, require("./editor").default);
+          },
+          "editor"
+        );
+      }
+    }
+  }
+];
+
+class AppRouters extends React.Component {
+  render() {
+    return <Router history={browserHistory} routes={routers} />;
+  }
 }
 
 export default AppRouters;

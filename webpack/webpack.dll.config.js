@@ -11,7 +11,15 @@ const _ = require("lodash");
 const env = _.trim(process.env.NODE_ENV);
 
 module.exports = {
-  entry: ["react", "react-dom", "antd"],
+  entry: [
+    "react",
+    "react-dom",
+    "react-router",
+    "react-slick",
+    "classnames",
+    "axios",
+    "highlight.js"
+  ],
   output: {
     path: rootPath + "/src/assets/library/dll", //打包后的文件存放的地方
     filename: "vendor.dll.js", //打包后输出文件的文件名
@@ -19,29 +27,49 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   exclude: /(node_modules|bower_components)/,
+      //   use: {
+      //     loader: "babel-loader",
+      //     options: {
+      //       presets: ["es2015", "stage-0", "react"],
+      //       plugins: [
+      //         [
+      //           "import",
+      //           { libraryName: "antd", libraryDirectory: "es", style: "css" }
+      //         ]
+      //       ]
+      //     }
+      //   }
+      // },
+      // {
+      //   test: /\.html$/,
+      //   loader: "html-loader",
+      //   exclude: /node_modules/
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: [
+      //       {
+      //         loader: "css-loader",
+      //         options: {
+      //           minimize: env === "dev" ? false : true,
+      //           sourceMap: false
+      //         }
+      //       }
+      //     ]
+      //   })
+      // },
       {
-        test: /\.js$/,
-        // exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["es2015", "stage-0", "react"],
-            plugins: [
-              [
-                "import",
-                { libraryName: "antd", libraryDirectory: "es", style: "css" }
-              ]
-            ]
-          }
-        }
-      },
-      {
-        test: /\.html$/,
-        loader: "html-loader",
-        exclude: /node_modules/
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader?limit=100000"
       },
       {
         test: /\.css$/,
+        // exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
@@ -52,30 +80,7 @@ module.exports = {
                 sourceMap: false
               }
             }
-          ]
-        })
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
-      },
-      {
-        test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                modules: true,
-                sourceMap: false,
-                minimize: env === "dev" ? false : true,
-                importLoader: 1,
-                localIdentName: "[hash:base64:5]"
-              }
-            },
-            "postcss-loader",
-            "less-loader"
+            // "postcss-loader"
           ]
         })
       }

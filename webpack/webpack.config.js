@@ -16,7 +16,7 @@ const webpackConfig = {
     path: rootPath + "/dist",
     filename: "[name].[chunkhash:8].bundle.js",
     publicPath: "/", // 打包时，是否添加前缀
-    chunkFilename: "[name]-[id].[chunkhash:8].bundle.js"
+    chunkFilename: "[name]-[id].[chunkhash:5].bundle.js"
   },
   devServer: {
     contentBase: rootPath + "/src/assets/", // 本地服务器所加载的页面所在的目录
@@ -44,13 +44,8 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015", "stage-0", "react"]
-            // plugins: [
-            //   [
-            //     "import",
-            //     { libraryName: "antd", libraryDirectory: "es", style: "css" }
-            //   ]
-            // ]
+            presets: ["es2015", "stage-0", "react"],
+            plugins: [["import", { libraryName: "antd", style: "css" }]]
           }
         }
       },
