@@ -109,7 +109,7 @@ const routers = [
       require.ensure(
         [],
         require => {
-          cb(null, require("./App").default);
+          cb(null, require("./app").default);
         },
         "editorApp"
       );
