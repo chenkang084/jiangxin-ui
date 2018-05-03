@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import styles from "./article.less";
-import classnames from "classnames";
-import config from "../../config";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import styles from './article.less';
+import classnames from 'classnames';
+import config from '../../config';
 
 console.log(config);
 export default class Article extends React.Component {
@@ -11,7 +11,9 @@ export default class Article extends React.Component {
   // }
 
   componentDidMount() {
-    iFrameResize({ log: true }, document.getElementById("test"));
+    iFrameResize({ log: true }, document.getElementById('article-content'));
+    console.log("......");
+    
   }
 
   render() {
@@ -21,7 +23,7 @@ export default class Article extends React.Component {
           <div className={styles.title}>{this.props.title}</div>
           <div className={styles.authorInfo}>
             <span>{this.props.author}</span>
-            <span style={{ marginLeft: "15px" }}>{this.props.create_time}</span>
+            <span style={{ marginLeft: '15px' }}>{this.props.create_time}</span>
           </div>
         </section>
         {/* <div
@@ -30,9 +32,10 @@ export default class Article extends React.Component {
         /> */}
 
         <iframe
-          id="test"
+          id="article-content"
+          className={styles.articleContent}
           src={`${config.uri.iframeUri}articles/${this.props.title}.html`}
-          style={{ minHeight: "800px" }}
+          style={{ minHeight: '800px' }}
         />
       </div>
     );

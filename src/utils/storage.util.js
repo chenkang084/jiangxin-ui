@@ -5,17 +5,17 @@ export const saveSessionStorage = (key, item) => {
   sessionStorage.setItem(key, JSON.stringify(item));
 };
 
-export const getSessionStorage = key => {
+export const getSessionStorage = (key) => {
   if (!key) {
     throw new TypeError("the key can't be  null in getSessionStorge function");
   }
-  return JSON.parse(sessionStorage.getItem(key)) || {};
+  return JSON.parse(sessionStorage.getItem(key));
 };
 
-export const removeSessionStorage = key => {
+export const removeSessionStorage = (key) => {
   if (!key) {
     throw new TypeError(
-      "the key can't be  null in removeSessionStorage function"
+      "the key can't be  null in removeSessionStorage function",
     );
   }
   sessionStorage.removeItem(key);
@@ -32,17 +32,17 @@ export const savelocalStorage = (key, item = {}) => {
   localStorage.setItem(key, JSON.stringify(item));
 };
 
-export const getLocalStorage = key => {
+export const getLocalStorage = (key) => {
   if (!key) {
     throw new TypeError("the key can't be  null in getLocalStorage function");
   }
-  return JSON.parse(localStorage.getItem(key)) || {};
+  return JSON.parse(localStorage.getItem(key));
 };
 
-export const removeLocalStorage = key => {
+export const removeLocalStorage = (key) => {
   if (!key) {
     throw new TypeError(
-      "the key can't be  null in removeLocalStorage function"
+      "the key can't be  null in removeLocalStorage function",
     );
   }
   localStorage.removeItem(key);

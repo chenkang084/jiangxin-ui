@@ -23,4 +23,5 @@ html,body,#root,#root>div{
 
 .main{
   height: calc(100% - 111px);
+  overflow-y: auto;
 }

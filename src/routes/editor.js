@@ -1,17 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Menu from "../components/menu/menu";
-import SquireUI from "../components/SquireUI/SquireUI";
-import Title from "../components/menu/title";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Menu from '../components/menu/menu';
+import SquireUI from '../components/SquireUI/SquireUI';
+import Title from '../components/menu/title';
 import {
   saveArticleToStorage,
   getArticleFromStorage,
-  downloadFile
-} from "../utils/article.util";
-import UploadModal from "../components/menu/upload.modal";
-import { style_html } from "../utils/beautify.util";
-import { message } from "antd";
-import "../assets/styles/common.css";
+  downloadFile,
+} from '../utils/article.util';
+import UploadModal from '../components/menu/upload.modal';
+import { style_html } from '../utils/beautify.util';
+import { message } from 'antd';
+import '../assets/styles/common.css';
+import { savelocalStorage, getLocalStorage } from '../utils/storage.util';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -20,23 +21,23 @@ export default class Home extends React.Component {
 
   state = {
     showSourceCode: false,
-    sourceCode: "",
+    sourceCode: '',
     editor: null,
     titleInfo: {
-      title: "",
-      abstract: "",
-      coverImg: "",
-      author: ""
+      title: getLocalStorage('title') || '',
+      author: getLocalStorage('author') || '',
+      coverImg: getLocalStorage('coverImg') || '',
+      abstract: getLocalStorage('abstract') || '',
     },
-    content: "",
-    uploadModalVisible: false
+    content: '',
+    uploadModalVisible: false,
   };
 
-  setIframe = iframe => {
+  setIframe = (iframe) => {
     this.iframe = iframe;
     this.editor = iframe.contentWindow.editor;
     this.setState({
-      editor: iframe.contentWindow.editor
+      editor: iframe.contentWindow.editor,
     });
 
     const prevArticle = getArticleFromStorage();
@@ -52,37 +53,37 @@ export default class Home extends React.Component {
           const html_format = style_html(this.editor.getHTML());
           this.setState({
             showSourceCode: true,
-            sourceCode: html_format
+            sourceCode: html_format,
           });
         },
         remove: () => {
           this.setState({ showSourceCode: false });
-        }
+        },
       },
       cleanText: {
         add: () => {
-          this.editor.setHTML("");
-          this.setState({ sourceCode: "" });
-        }
+          this.editor.setHTML('');
+          this.setState({ sourceCode: '' });
+        },
       },
       upLoad: {
         add: () => {
           if (this.props.loginStatus) {
             this.handleUploadModalVisible(true);
           } else {
-            message.error("请先登录！");
+            message.error('请先登录！');
           }
-        }
+        },
       },
       bold: { add: this.editor.bold, remove: this.editor.removeBold },
       italic: { add: this.editor.italic, remove: this.editor.removeItalic },
       underline: {
         add: this.editor.underline,
-        remove: this.editor.removeUnderline
+        remove: this.editor.removeUnderline,
       },
       strikethrough: {
         add: this.editor.strikethrough,
-        remove: this.editor.removeStrikethrough
+        remove: this.editor.removeStrikethrough,
       },
       fontSize: { add: this.editor.setFontSize },
       fontFamily: { add: this.editor.setFontFace },
@@ -92,42 +93,42 @@ export default class Home extends React.Component {
       addImg: { add: this.editor.insertImage },
       alignLeft: {
         add: () => {
-          this.editor.setTextAlignment("left");
+          this.editor.setTextAlignment('left');
         },
         remove: () => {
-          this.editor.setTextAlignment("left");
-        }
+          this.editor.setTextAlignment('left');
+        },
       },
       alignCenter: {
         add: () => {
-          this.editor.setTextAlignment("center");
+          this.editor.setTextAlignment('center');
         },
         remove: () => {
-          this.editor.setTextAlignment("left");
-        }
+          this.editor.setTextAlignment('left');
+        },
       },
       alignRight: {
         add: () => {
-          this.editor.setTextAlignment("right");
+          this.editor.setTextAlignment('right');
         },
         remove: () => {
-          this.editor.setTextAlignment("left");
-        }
+          this.editor.setTextAlignment('left');
+        },
       },
       download: {
         add: () => {
-          console.log("...");
+          console.log('...');
           const html = this.editor.getHTML();
           console.log(html);
 
-          downloadFile("test", html);
-        }
+          downloadFile('test', html);
+        },
       },
       saveToLocal: {
         add: () => {
           saveArticleToStorage(this.editor.getHTML());
-        }
-      }
+        },
+      },
     };
   };
 
@@ -151,7 +152,7 @@ export default class Home extends React.Component {
     actionFn && actionFn.call(this.editor, value);
   };
 
-  executeAlign = action => {
+  executeAlign = (action) => {
     let actionFn;
     if (this.actionList[action] && this.actionList[action].add) {
       actionFn = this.actionList[action].add;
@@ -162,22 +163,24 @@ export default class Home extends React.Component {
 
   setTitle = (type, value) => {
     if (type) {
-      this.setState(prev => {
+      this.setState((prev) => {
         console.log(prev);
         const titleInfo = prev.titleInfo;
         titleInfo[type] = value;
         return {
-          titleInfo
+          titleInfo,
         };
       });
+
+      savelocalStorage(type, value);
     }
   };
 
-  handleUploadModalVisible = flag => {
+  handleUploadModalVisible = (flag) => {
     this.setState({ uploadModalVisible: flag });
   };
 
-  updateArticleBySourcecode = sourcecode => {
+  updateArticleBySourcecode = (sourcecode) => {
     this.editor.setHTML(sourcecode);
   };
 
@@ -186,7 +189,7 @@ export default class Home extends React.Component {
       <div>
         <section className="header">
           <div className="wrapper">
-            <h1 style={{ color: "#fff" }}>酱辛公众号编辑器</h1>
+            <h1 style={{ color: '#fff' }}>酱辛公众号编辑器</h1>
           </div>
         </section>
         <Menu
