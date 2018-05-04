@@ -15,19 +15,16 @@ export default class Article extends React.Component {
     const iframe = this.refs.iframe;
 
     if (iframe) {
-      iframe.onload = () => {
-        var style = document.createElement('style');
-        style.type = 'text/css';
-        style.innerHTML =
-          'body{ background-color:blue;} img{max-width:400px !important;}  }';
+      if (env === 'prod') {
+        iframe.onload = () => {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'img{max-width:400px !important;}';
 
-        iframe.contentDocument.head.append(style);
-      };
+          iframe.contentDocument.head.append(style);
+        };
+      }
     }
-  }
-
-  iframeRender(iframe) {
-    console.log('xx==============================');
   }
 
   render() {
@@ -47,7 +44,6 @@ export default class Article extends React.Component {
 
         <iframe
           id="article-content"
-          ref="iframe"
           className={styles.articleContent}
           src={`${config.uri.iframeUri}articles/${this.props.title}.html`}
           style={{ minHeight: '800px' }}
