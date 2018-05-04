@@ -4,7 +4,6 @@ import styles from './article.less';
 import classnames from 'classnames';
 import config from '../../config';
 
-console.log(config);
 export default class Article extends React.Component {
   // componentWillMount() {
   //   addMetaReferrer();
@@ -12,8 +11,20 @@ export default class Article extends React.Component {
 
   componentDidMount() {
     iFrameResize({ log: true }, document.getElementById('article-content'));
-    console.log("......");
-    
+    console.log(this.refs.iframe, '......');
+    const iframe = this.refs.iframe;
+
+    if (iframe) {
+      if (env === 'prod') {
+        iframe.onload = () => {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'img{max-width:400px !important;}';
+
+          iframe.contentDocument.head.append(style);
+        };
+      }
+    }
   }
 
   render() {

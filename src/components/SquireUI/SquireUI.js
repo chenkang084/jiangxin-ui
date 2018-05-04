@@ -84,7 +84,7 @@ export default class SquireUI extends React.Component {
             '  padding: 0 10px;' +
             '}' +
             'img{' +
-            'min-width:500px!important;}',
+            'min-width:400px!important;max-width:400px!important;}',
         );
 
         self.props.setIframe(iframe);

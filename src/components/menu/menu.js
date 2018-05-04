@@ -120,7 +120,8 @@ export default class Menus extends React.Component {
               !this.props.titleInfo.title ||
               !this.props.titleInfo.abstract ||
               !this.props.titleInfo.author ||
-              !this.props.titleInfo.coverImg
+              !this.props.titleInfo.coverImg || 
+              !this.props.loginStatus
           },
           {
             type: "align",
