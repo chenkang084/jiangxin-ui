@@ -27,7 +27,7 @@ const webpackConfig = {
     inline: true, // 实时刷新
     proxy: {
       '/api': {
-        target: 'http://10.96.194.137:9001/',
+        target: 'http://jx.monkeystar.cn/',
         // target: 'http://jx.monkeystar.cn/',
         changeOrigin: true,
         // secure: true
